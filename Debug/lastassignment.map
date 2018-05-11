@@ -1,0 +1,1172 @@
+Archive member included to satisfy reference by file (symbol)
+
+/opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
+                              /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o (exit)
+/opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-impure.o)
+                              /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o) (_global_impure_ptr)
+/opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-init.o)
+                              /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o (__libc_init_array)
+/opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memcpy.o)
+                              ./FRT_Library/FreeRTOS/Source/queue.o (memcpy)
+/opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memset.o)
+                              /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o (memset)
+/opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-strncpy.o)
+                              ./FRT_Library/FreeRTOS/Source/tasks.o (strncpy)
+/opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
+                              /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o) (__call_exitprocs)
+/opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-atexit.o)
+                              /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o) (atexit)
+/opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-fini.o)
+                              /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o) (__libc_fini_array)
+/opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                              /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o) (__retarget_lock_acquire_recursive)
+/opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__atexit.o)
+                              /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-atexit.o) (__register_exitproc)
+/opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
+                              /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o) (_exit)
+
+Allocating common symbols
+Common symbol       size              file
+
+__lock___atexit_recursive_mutex
+                    0x1               /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+__lock___arc4random_mutex
+                    0x1               /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+first4bits          0x1               ./lcd.o
+__lock___env_recursive_mutex
+                    0x1               /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+dummy1              0x1               ./emp.o
+__lock___sinit_recursive_mutex
+                    0x1               /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+__lock___malloc_recursive_mutex
+                    0x1               /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+dummy2              0x2               ./emp.o
+last4bits           0x1               ./lcd.o
+__lock___at_quick_exit_mutex
+                    0x1               /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+__lock___dd_hash_mutex
+                    0x1               /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+__lock___tz_mutex   0x1               /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+__lock___sfp_recursive_mutex
+                    0x1               /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x0000000000000000 0x0000000000040000 xr
+SRAM             0x0000000020000000 0x0000000000008000 xw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crti.o
+LOAD /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+LOAD /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
+LOAD ./emp.o
+LOAD ./hardware.o
+LOAD ./keyboard.o
+LOAD ./lcd.o
+LOAD ./main.o
+LOAD ./systick_frt.o
+LOAD ./tm4c123gh6pm_startup_ccs_gcc.o
+LOAD ./trafficlight.o
+LOAD ./uart0.o
+LOAD ./FRT_Library/FreeRTOS/Source/croutine.o
+LOAD ./FRT_Library/FreeRTOS/Source/list.o
+LOAD ./FRT_Library/FreeRTOS/Source/queue.o
+LOAD ./FRT_Library/FreeRTOS/Source/tasks.o
+LOAD ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/common.o
+LOAD ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+LOAD ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+                0x0000000000000000                PROVIDE (_intvecs_base_address, 0x0)
+
+.intvecs        0x0000000000000000      0x26c
+ *(.intvecs)
+ .intvecs       0x0000000000000000      0x26c ./tm4c123gh6pm_startup_ccs_gcc.o
+                0x0000000000000000                g_pfnVectors
+                0x0000000020000000                PROVIDE (_vtable_base_address, 0x20000000)
+
+.vtable
+ *(.vtable)
+
+.text           0x000000000000026c     0x38e0
+ CREATE_OBJECT_SYMBOLS
+ *(.text)
+ .text          0x000000000000026c        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crti.o
+ .text          0x000000000000026c       0x40 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ .text          0x00000000000002ac       0x74 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
+                0x00000000000002ac                _mainCRTStartup
+                0x00000000000002ac                _start
+ .text          0x0000000000000320        0x0 ./emp.o
+ .text          0x0000000000000320        0x0 ./hardware.o
+ .text          0x0000000000000320        0x0 ./keyboard.o
+ .text          0x0000000000000320        0x0 ./lcd.o
+ .text          0x0000000000000320        0x0 ./main.o
+ .text          0x0000000000000320        0x0 ./systick_frt.o
+ .text          0x0000000000000320        0x0 ./tm4c123gh6pm_startup_ccs_gcc.o
+ .text          0x0000000000000320        0x0 ./trafficlight.o
+ .text          0x0000000000000320        0x0 ./uart0.o
+ .text          0x0000000000000320        0x0 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .text          0x0000000000000320        0x0 ./FRT_Library/FreeRTOS/Source/list.o
+ .text          0x0000000000000320        0x0 ./FRT_Library/FreeRTOS/Source/queue.o
+ .text          0x0000000000000320        0x0 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .text          0x0000000000000320        0x0 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/common.o
+ .text          0x0000000000000320        0x0 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+ .text          0x0000000000000320        0x0 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+ .text          0x0000000000000320        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
+ .text          0x0000000000000320        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-impure.o)
+ .text          0x0000000000000320        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-init.o)
+ .text          0x0000000000000320      0x134 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memcpy.o)
+                0x0000000000000320                memcpy
+ .text          0x0000000000000454        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memset.o)
+ .text          0x0000000000000454        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-strncpy.o)
+ .text          0x0000000000000454        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
+ .text          0x0000000000000454        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-atexit.o)
+ .text          0x0000000000000454        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-fini.o)
+ .text          0x0000000000000454        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+ .text          0x0000000000000454        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__atexit.o)
+ .text          0x0000000000000454        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
+ .text          0x0000000000000454        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtend.o
+ .text          0x0000000000000454        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+ *(.text.*)
+ .text.test1    0x0000000000000454       0x20 ./emp.o
+                0x0000000000000454                test1
+ .text.test2    0x0000000000000474       0x24 ./emp.o
+                0x0000000000000474                test2
+ .text.is_sw1_pressed
+                0x0000000000000498       0x24 ./hardware.o
+                0x0000000000000498                is_sw1_pressed
+ .text.is_sw2_pressed
+                0x00000000000004bc       0x24 ./hardware.o
+                0x00000000000004bc                is_sw2_pressed
+ .text.sw1_task
+                0x00000000000004e0      0x128 ./hardware.o
+                0x00000000000004e0                sw1_task
+ .text.emp_set_led
+                0x0000000000000608       0x88 ./hardware.o
+                0x0000000000000608                emp_set_led
+ .text.emp_toggle_status_led
+                0x0000000000000690       0x20 ./hardware.o
+                0x0000000000000690                emp_toggle_status_led
+ .text.emp_clear_leds
+                0x00000000000006b0        0xe ./hardware.o
+                0x00000000000006b0                emp_clear_leds
+ *fill*         0x00000000000006be        0x2 
+ .text.status_led_task
+                0x00000000000006c0       0x2c ./hardware.o
+                0x00000000000006c0                status_led_task
+ .text.init_tiva_board
+                0x00000000000006ec       0xb0 ./hardware.o
+                0x00000000000006ec                init_tiva_board
+ .text.hardware_init
+                0x000000000000079c       0x18 ./hardware.o
+                0x000000000000079c                hardware_init
+ .text.key_catch
+                0x00000000000007b4       0x44 ./keyboard.o
+                0x00000000000007b4                key_catch
+ .text.readkeyboardtask
+                0x00000000000007f8      0x310 ./keyboard.o
+                0x00000000000007f8                readkeyboardtask
+ .text.delayms  0x0000000000000b08       0x22 ./lcd.o
+                0x0000000000000b08                delayms
+ *fill*         0x0000000000000b2a        0x2 
+ .text.write4bits
+                0x0000000000000b2c       0x60 ./lcd.o
+                0x0000000000000b2c                write4bits
+ .text.writeinstruction
+                0x0000000000000b8c       0x50 ./lcd.o
+                0x0000000000000b8c                writeinstruction
+ .text.writedata
+                0x0000000000000bdc       0x50 ./lcd.o
+                0x0000000000000bdc                writedata
+ .text.lcd_init
+                0x0000000000000c2c       0xcc ./lcd.o
+                0x0000000000000c2c                lcd_init
+ .text.lcd_setcursor
+                0x0000000000000cf8       0x2e ./lcd.o
+                0x0000000000000cf8                lcd_setcursor
+ .text.lcd_writedata_position
+                0x0000000000000d26       0x28 ./lcd.o
+                0x0000000000000d26                lcd_writedata_position
+ *fill*         0x0000000000000d4e        0x2 
+ .text.lcd_seconds
+                0x0000000000000d50      0x1a0 ./lcd.o
+                0x0000000000000d50                lcd_seconds
+ .text.lcd_display_time
+                0x0000000000000ef0       0x10 ./lcd.o
+                0x0000000000000ef0                lcd_display_time
+ .text.lcd_minutes
+                0x0000000000000f00       0xe0 ./lcd.o
+                0x0000000000000f00                lcd_minutes
+ .text.lcd_write
+                0x0000000000000fe0       0x22 ./lcd.o
+                0x0000000000000fe0                lcd_write
+ .text.putChar  0x0000000000001002       0x10 ./main.o
+                0x0000000000001002                putChar
+ .text.emp_board_alive
+                0x0000000000001012       0x14 ./main.o
+                0x0000000000001012                emp_board_alive
+ .text.readkeyboard
+                0x0000000000001026       0x14 ./main.o
+                0x0000000000001026                readkeyboard
+ .text.write    0x000000000000103a       0x16 ./main.o
+                0x000000000000103a                write
+ .text.UART     0x0000000000001050       0x16 ./main.o
+                0x0000000000001050                UART
+ .text.setupHardware
+                0x0000000000001066       0x22 ./main.o
+ .text.main     0x0000000000001088       0xe8 ./main.o
+                0x0000000000001088                main
+ .text.enable_global_int
+                0x0000000000001170       0x10 ./systick_frt.o
+                0x0000000000001170                enable_global_int
+ .text.disable_global_int
+                0x0000000000001180       0x10 ./systick_frt.o
+                0x0000000000001180                disable_global_int
+ .text.init_systick
+                0x0000000000001190       0x88 ./systick_frt.o
+                0x0000000000001190                init_systick
+ .text.ResetISR
+                0x0000000000001218       0x6c ./tm4c123gh6pm_startup_ccs_gcc.o
+                0x0000000000001218                ResetISR
+ .text.NmiSR    0x0000000000001284        0x6 ./tm4c123gh6pm_startup_ccs_gcc.o
+ .text.FaultISR
+                0x000000000000128a        0x6 ./tm4c123gh6pm_startup_ccs_gcc.o
+ .text.IntDefaultHandler
+                0x0000000000001290        0x6 ./tm4c123gh6pm_startup_ccs_gcc.o
+ *fill*         0x0000000000001296        0x2 
+ .text.norwegian_mode
+                0x0000000000001298       0x80 ./trafficlight.o
+                0x0000000000001298                norwegian_mode
+ .text.emergency_mode
+                0x0000000000001318       0x28 ./trafficlight.o
+                0x0000000000001318                emergency_mode
+ .text.auto_mode
+                0x0000000000001340       0xe8 ./trafficlight.o
+                0x0000000000001340                auto_mode
+ .text.trafficlight
+                0x0000000000001428       0x9c ./trafficlight.o
+                0x0000000000001428                trafficlight
+ .text.lcrh_databits
+                0x00000000000014c4       0x2c ./uart0.o
+                0x00000000000014c4                lcrh_databits
+ .text.lcrh_stopbits
+                0x00000000000014f0       0x22 ./uart0.o
+                0x00000000000014f0                lcrh_stopbits
+ .text.lcrh_parity
+                0x0000000000001512       0x4e ./uart0.o
+                0x0000000000001512                lcrh_parity
+ .text.uart0_fifos_enable
+                0x0000000000001560       0x20 ./uart0.o
+                0x0000000000001560                uart0_fifos_enable
+ .text.uart0_fifos_disable
+                0x0000000000001580       0x20 ./uart0.o
+                0x0000000000001580                uart0_fifos_disable
+ .text.uart0_rx_rdy
+                0x00000000000015a0       0x20 ./uart0.o
+                0x00000000000015a0                uart0_rx_rdy
+ .text.uart0_getc
+                0x00000000000015c0       0x18 ./uart0.o
+                0x00000000000015c0                uart0_getc
+ .text.uart0_tx_rdy
+                0x00000000000015d8       0x20 ./uart0.o
+                0x00000000000015d8                uart0_tx_rdy
+ .text.uart0_putc
+                0x00000000000015f8       0x20 ./uart0.o
+                0x00000000000015f8                uart0_putc
+ .text.uart0_init
+                0x0000000000001618       0xe4 ./uart0.o
+                0x0000000000001618                uart0_init
+ .text.uart0_sendchar
+                0x00000000000016fc       0x26 ./uart0.o
+                0x00000000000016fc                uart0_sendchar
+ *fill*         0x0000000000001722        0x2 
+ .text.xCoRoutineCreate
+                0x0000000000001724       0xcc ./FRT_Library/FreeRTOS/Source/croutine.o
+                0x0000000000001724                xCoRoutineCreate
+ .text.vCoRoutineAddToDelayedList
+                0x00000000000017f0       0x84 ./FRT_Library/FreeRTOS/Source/croutine.o
+                0x00000000000017f0                vCoRoutineAddToDelayedList
+ .text.prvCheckPendingReadyList
+                0x0000000000001874       0x8c ./FRT_Library/FreeRTOS/Source/croutine.o
+ .text.prvCheckDelayedList
+                0x0000000000001900      0x108 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .text.vCoRoutineSchedule
+                0x0000000000001a08       0xa0 ./FRT_Library/FreeRTOS/Source/croutine.o
+                0x0000000000001a08                vCoRoutineSchedule
+ .text.prvInitialiseCoRoutineLists
+                0x0000000000001aa8       0x6c ./FRT_Library/FreeRTOS/Source/croutine.o
+ .text.xCoRoutineRemoveFromEventList
+                0x0000000000001b14       0x5c ./FRT_Library/FreeRTOS/Source/croutine.o
+                0x0000000000001b14                xCoRoutineRemoveFromEventList
+ .text.vListInitialise
+                0x0000000000001b70       0x40 ./FRT_Library/FreeRTOS/Source/list.o
+                0x0000000000001b70                vListInitialise
+ .text.vListInitialiseItem
+                0x0000000000001bb0       0x1a ./FRT_Library/FreeRTOS/Source/list.o
+                0x0000000000001bb0                vListInitialiseItem
+ .text.vListInsertEnd
+                0x0000000000001bca       0x50 ./FRT_Library/FreeRTOS/Source/list.o
+                0x0000000000001bca                vListInsertEnd
+ .text.vListInsert
+                0x0000000000001c1a       0x72 ./FRT_Library/FreeRTOS/Source/list.o
+                0x0000000000001c1a                vListInsert
+ .text.vListRemove
+                0x0000000000001c8c       0x50 ./FRT_Library/FreeRTOS/Source/list.o
+                0x0000000000001c8c                vListRemove
+ .text.xQueueCreate
+                0x0000000000001cdc       0xb6 ./FRT_Library/FreeRTOS/Source/queue.o
+                0x0000000000001cdc                xQueueCreate
+ .text.xQueueCreateMutex
+                0x0000000000001d92       0x78 ./FRT_Library/FreeRTOS/Source/queue.o
+                0x0000000000001d92                xQueueCreateMutex
+ .text.xQueueGiveMutexRecursive
+                0x0000000000001e0a       0x48 ./FRT_Library/FreeRTOS/Source/queue.o
+                0x0000000000001e0a                xQueueGiveMutexRecursive
+ .text.xQueueTakeMutexRecursive
+                0x0000000000001e52       0x50 ./FRT_Library/FreeRTOS/Source/queue.o
+                0x0000000000001e52                xQueueTakeMutexRecursive
+ .text.xQueueGenericSend
+                0x0000000000001ea2      0x106 ./FRT_Library/FreeRTOS/Source/queue.o
+                0x0000000000001ea2                xQueueGenericSend
+ .text.xQueueGenericSendFromISR
+                0x0000000000001fa8       0x80 ./FRT_Library/FreeRTOS/Source/queue.o
+                0x0000000000001fa8                xQueueGenericSendFromISR
+ .text.xQueueGenericReceive
+                0x0000000000002028      0x168 ./FRT_Library/FreeRTOS/Source/queue.o
+                0x0000000000002028                xQueueGenericReceive
+ .text.xQueueReceiveFromISR
+                0x0000000000002190       0x82 ./FRT_Library/FreeRTOS/Source/queue.o
+                0x0000000000002190                xQueueReceiveFromISR
+ .text.uxQueueMessagesWaiting
+                0x0000000000002212       0x20 ./FRT_Library/FreeRTOS/Source/queue.o
+                0x0000000000002212                uxQueueMessagesWaiting
+ .text.uxQueueMessagesWaitingFromISR
+                0x0000000000002232       0x1c ./FRT_Library/FreeRTOS/Source/queue.o
+                0x0000000000002232                uxQueueMessagesWaitingFromISR
+ .text.vQueueDelete
+                0x000000000000224e       0x20 ./FRT_Library/FreeRTOS/Source/queue.o
+                0x000000000000224e                vQueueDelete
+ .text.prvCopyDataToQueue
+                0x000000000000226e       0xb6 ./FRT_Library/FreeRTOS/Source/queue.o
+ .text.prvCopyDataFromQueue
+                0x0000000000002324       0x4c ./FRT_Library/FreeRTOS/Source/queue.o
+ .text.prvUnlockQueue
+                0x0000000000002370       0x98 ./FRT_Library/FreeRTOS/Source/queue.o
+ .text.prvIsQueueEmpty
+                0x0000000000002408       0x2a ./FRT_Library/FreeRTOS/Source/queue.o
+ .text.xQueueIsQueueEmptyFromISR
+                0x0000000000002432       0x26 ./FRT_Library/FreeRTOS/Source/queue.o
+                0x0000000000002432                xQueueIsQueueEmptyFromISR
+ .text.prvIsQueueFull
+                0x0000000000002458       0x2e ./FRT_Library/FreeRTOS/Source/queue.o
+ .text.xQueueIsQueueFullFromISR
+                0x0000000000002486       0x2a ./FRT_Library/FreeRTOS/Source/queue.o
+                0x0000000000002486                xQueueIsQueueFullFromISR
+ .text.xTaskGenericCreate
+                0x00000000000024b0      0x148 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x00000000000024b0                xTaskGenericCreate
+ .text.vTaskDelete
+                0x00000000000025f8       0x98 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x00000000000025f8                vTaskDelete
+ .text.vTaskDelayUntil
+                0x0000000000002690       0xd4 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002690                vTaskDelayUntil
+ .text.vTaskDelay
+                0x0000000000002764       0x8c ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002764                vTaskDelay
+ .text.uxTaskPriorityGet
+                0x00000000000027f0       0x34 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x00000000000027f0                uxTaskPriorityGet
+ .text.vTaskPrioritySet
+                0x0000000000002824       0xfc ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002824                vTaskPrioritySet
+ .text.vTaskSuspend
+                0x0000000000002920       0x70 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002920                vTaskSuspend
+ .text.xTaskIsTaskSuspended
+                0x0000000000002990       0x48 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002990                xTaskIsTaskSuspended
+ .text.vTaskResume
+                0x00000000000029d8       0x90 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x00000000000029d8                vTaskResume
+ .text.xTaskResumeFromISR
+                0x0000000000002a68       0xa0 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002a68                xTaskResumeFromISR
+ .text.vTaskStartScheduler
+                0x0000000000002b08       0x5c ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002b08                vTaskStartScheduler
+ .text.vTaskEndScheduler
+                0x0000000000002b64       0x20 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002b64                vTaskEndScheduler
+ .text.vTaskSuspendAll
+                0x0000000000002b84       0x1c ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002b84                vTaskSuspendAll
+ .text.xTaskResumeAll
+                0x0000000000002ba0      0x100 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002ba0                xTaskResumeAll
+ .text.xTaskGetTickCount
+                0x0000000000002ca0       0x24 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002ca0                xTaskGetTickCount
+ .text.uxTaskGetNumberOfTasks
+                0x0000000000002cc4       0x18 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002cc4                uxTaskGetNumberOfTasks
+ .text.vTaskIncrementTick
+                0x0000000000002cdc       0xe0 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002cdc                vTaskIncrementTick
+ .text.vTaskSwitchContext
+                0x0000000000002dbc       0x90 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002dbc                vTaskSwitchContext
+ .text.vTaskPlaceOnEventList
+                0x0000000000002e4c       0x9c ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002e4c                vTaskPlaceOnEventList
+ .text.xTaskRemoveFromEventList
+                0x0000000000002ee8       0xac ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002ee8                xTaskRemoveFromEventList
+ .text.vTaskSetTimeOutState
+                0x0000000000002f94       0x2c ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002f94                vTaskSetTimeOutState
+ .text.xTaskCheckForTimeOut
+                0x0000000000002fc0       0x88 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000002fc0                xTaskCheckForTimeOut
+ .text.vTaskMissedYield
+                0x0000000000003048       0x18 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000003048                vTaskMissedYield
+ .text.prvIdleTask
+                0x0000000000003060       0x20 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .text.prvInitialiseTCBVariables
+                0x0000000000003080       0x6c ./FRT_Library/FreeRTOS/Source/tasks.o
+ .text.prvInitialiseTaskLists
+                0x00000000000030ec       0x80 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .text.prvCheckTasksWaitingTermination
+                0x000000000000316c       0x84 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .text.prvAllocateTCBAndStack
+                0x00000000000031f0       0x62 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .text.prvDeleteTCB
+                0x0000000000003252       0x20 ./FRT_Library/FreeRTOS/Source/tasks.o
+ *fill*         0x0000000000003272        0x2 
+ .text.xTaskGetCurrentTaskHandle
+                0x0000000000003274       0x20 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000003274                xTaskGetCurrentTaskHandle
+ .text.vTaskPriorityInherit
+                0x0000000000003294       0xa4 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000003294                vTaskPriorityInherit
+ .text.vTaskPriorityDisinherit
+                0x0000000000003338       0x7c ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000000003338                vTaskPriorityDisinherit
+ .text.vApplicationStackOverflowHook
+                0x00000000000033b4       0x2a ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/common.o
+                0x00000000000033b4                vApplicationStackOverflowHook
+ .text.pxPortInitialiseStack
+                0x00000000000033de       0x52 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+                0x00000000000033de                pxPortInitialiseStack
+ .text.vPortSVCHandler
+                0x0000000000003430       0x24 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+                0x0000000000003430                vPortSVCHandler
+ .text.vPortStartFirstTask
+                0x0000000000003454       0x14 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+                0x0000000000003454                vPortStartFirstTask
+ .text.xPortStartScheduler
+                0x0000000000003468       0x38 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+                0x0000000000003468                xPortStartScheduler
+ .text.vPortEndScheduler
+                0x00000000000034a0        0xe ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+                0x00000000000034a0                vPortEndScheduler
+ *fill*         0x00000000000034ae        0x2 
+ .text.vPortYieldFromISR
+                0x00000000000034b0       0x1c ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+                0x00000000000034b0                vPortYieldFromISR
+ .text.vPortEnterCritical
+                0x00000000000034cc       0x24 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+                0x00000000000034cc                vPortEnterCritical
+ .text.vPortExitCritical
+                0x00000000000034f0       0x2c ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+                0x00000000000034f0                vPortExitCritical
+ .text.xPortPendSVHandler
+                0x000000000000351c       0x40 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+                0x000000000000351c                xPortPendSVHandler
+ .text.xPortSysTickHandler
+                0x000000000000355c       0x34 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+                0x000000000000355c                xPortSysTickHandler
+ .text.prvSetupTimerInterrupt
+                0x0000000000003590       0x28 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+ .text.pvPortMalloc
+                0x00000000000035b8      0x14c ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+                0x00000000000035b8                pvPortMalloc
+ .text.vPortFree
+                0x0000000000003704       0x74 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+                0x0000000000003704                vPortFree
+ .text.xPortGetFreeHeapSize
+                0x0000000000003778       0x18 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+                0x0000000000003778                xPortGetFreeHeapSize
+ .text.vPortInitialiseBlocks
+                0x0000000000003790        0xe ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+                0x0000000000003790                vPortInitialiseBlocks
+ *fill*         0x000000000000379e        0x2 
+ .text.exit     0x00000000000037a0       0x20 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
+                0x00000000000037a0                exit
+ .text.__libc_init_array
+                0x00000000000037c0       0x48 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-init.o)
+                0x00000000000037c0                __libc_init_array
+ .text.memset   0x0000000000003808       0x94 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memset.o)
+                0x0000000000003808                memset
+ .text.strncpy  0x000000000000389c       0x64 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-strncpy.o)
+                0x000000000000389c                strncpy
+ .text.startup.register_fini
+                0x0000000000003900       0x14 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
+ .text.__call_exitprocs
+                0x0000000000003914       0xe8 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
+                0x0000000000003914                __call_exitprocs
+ .text.atexit   0x00000000000039fc        0xc /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-atexit.o)
+                0x00000000000039fc                atexit
+ .text.__libc_fini_array
+                0x0000000000003a08       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-fini.o)
+                0x0000000000003a08                __libc_fini_array
+ .text.__retarget_lock_init
+                0x0000000000003a3c        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000000003a3c                __retarget_lock_init
+ .text.__retarget_lock_init_recursive
+                0x0000000000003a40        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000000003a40                __retarget_lock_init_recursive
+ .text.__retarget_lock_close
+                0x0000000000003a44        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000000003a44                __retarget_lock_close
+ .text.__retarget_lock_close_recursive
+                0x0000000000003a48        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000000003a48                __retarget_lock_close_recursive
+ .text.__retarget_lock_acquire
+                0x0000000000003a4c        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000000003a4c                __retarget_lock_acquire
+ .text.__retarget_lock_acquire_recursive
+                0x0000000000003a50        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000000003a50                __retarget_lock_acquire_recursive
+ .text.__retarget_lock_try_acquire
+                0x0000000000003a54        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000000003a54                __retarget_lock_try_acquire
+ .text.__retarget_lock_try_acquire_recursive
+                0x0000000000003a58        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000000003a58                __retarget_lock_try_acquire_recursive
+ .text.__retarget_lock_release
+                0x0000000000003a5c        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000000003a5c                __retarget_lock_release
+ .text.__retarget_lock_release_recursive
+                0x0000000000003a60        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000000003a60                __retarget_lock_release_recursive
+ .text.__register_exitproc
+                0x0000000000003a64       0xc0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__atexit.o)
+                0x0000000000003a64                __register_exitproc
+ .text._exit    0x0000000000003b24        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
+                0x0000000000003b24                _exit
+                0x0000000000003b28                . = ALIGN (0x4)
+ *(.ctors)
+                0x0000000000003b28                . = ALIGN (0x4)
+ *(.dtors)
+                0x0000000000003b28                . = ALIGN (0x4)
+                0x0000000000003b28                __init_array_start = .
+ *(.init_array*)
+ .init_array    0x0000000000003b28        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ .init_array.00000
+                0x0000000000003b2c        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
+                0x0000000000003b30                __init_array_end = .
+ *(.init)
+ .init          0x0000000000003b30        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crti.o
+                0x0000000000003b30                _init
+ .init          0x0000000000003b34        0x8 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+ *(.fini*)
+ .fini          0x0000000000003b3c        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crti.o
+                0x0000000000003b3c                _fini
+ .fini_array    0x0000000000003b40        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ .fini          0x0000000000003b44        0x8 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+                [!provide]                        PROVIDE (__etext, .)
+                [!provide]                        PROVIDE (_etext, .)
+                [!provide]                        PROVIDE (etext, .)
+
+.glue_7         0x0000000000003b4c        0x0
+ .glue_7        0x0000000000003b4c        0x0 linker stubs
+
+.glue_7t        0x0000000000003b4c        0x0
+ .glue_7t       0x0000000000003b4c        0x0 linker stubs
+
+.vfp11_veneer   0x0000000000003b4c        0x0
+ .vfp11_veneer  0x0000000000003b4c        0x0 linker stubs
+
+.v4_bx          0x0000000000003b4c        0x0
+ .v4_bx         0x0000000000003b4c        0x0 linker stubs
+
+.iplt           0x0000000000003b4c        0x0
+ .iplt          0x0000000000003b4c        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+
+.rodata         0x0000000000003b4c       0x50
+ *(.rodata)
+ .rodata        0x0000000000003b4c        0xc ./keyboard.o
+ .rodata        0x0000000000003b58       0x2d ./main.o
+ *fill*         0x0000000000003b85        0x3 
+ .rodata        0x0000000000003b88        0x5 ./FRT_Library/FreeRTOS/Source/tasks.o
+ *(.rodata*)
+ *fill*         0x0000000000003b8d        0x3 
+ .rodata.ulKernelPriority
+                0x0000000000003b90        0x4 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+                0x0000000000003b90                ulKernelPriority
+ .rodata.heapSTRUCT_SIZE
+                0x0000000000003b94        0x2 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+ *fill*         0x0000000000003b96        0x2 
+ .rodata._global_impure_ptr
+                0x0000000000003b98        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-impure.o)
+                0x0000000000003b98                _global_impure_ptr
+
+.eh_frame       0x0000000000003b9c        0x4
+ .eh_frame      0x0000000000003b9c        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ .eh_frame      0x0000000000003b9c        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtend.o
+
+.data           0x0000000020000000      0x474 load address 0x0000000000003ba0
+                0x0000000000003ba0                __data_load__ = LOADADDR (.data)
+                0x0000000020000000                __data_start__ = .
+ *(.data)
+ .data          0x0000000020000000        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crti.o
+ .data          0x0000000020000000        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+                0x0000000020000000                __dso_handle
+ .data          0x0000000020000004        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
+ .data          0x0000000020000004        0x0 ./emp.o
+ .data          0x0000000020000004        0x0 ./hardware.o
+ .data          0x0000000020000004        0x0 ./keyboard.o
+ .data          0x0000000020000004        0x0 ./lcd.o
+ .data          0x0000000020000004        0x0 ./main.o
+ .data          0x0000000020000004        0x0 ./systick_frt.o
+ .data          0x0000000020000004        0x0 ./tm4c123gh6pm_startup_ccs_gcc.o
+ .data          0x0000000020000004        0x0 ./trafficlight.o
+ .data          0x0000000020000004        0x0 ./uart0.o
+ .data          0x0000000020000004        0x0 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .data          0x0000000020000004        0x0 ./FRT_Library/FreeRTOS/Source/list.o
+ .data          0x0000000020000004        0x0 ./FRT_Library/FreeRTOS/Source/queue.o
+ .data          0x0000000020000004        0x0 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .data          0x0000000020000004        0x0 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/common.o
+ .data          0x0000000020000004        0x0 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+ .data          0x0000000020000004        0x0 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+ .data          0x0000000020000004        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
+ .data          0x0000000020000004        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-impure.o)
+ .data          0x0000000020000004        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-init.o)
+ .data          0x0000000020000004        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memcpy.o)
+ .data          0x0000000020000004        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memset.o)
+ .data          0x0000000020000004        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-strncpy.o)
+ .data          0x0000000020000004        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
+ .data          0x0000000020000004        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-atexit.o)
+ .data          0x0000000020000004        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-fini.o)
+ .data          0x0000000020000004        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+ .data          0x0000000020000004        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__atexit.o)
+ .data          0x0000000020000004        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
+ .data          0x0000000020000004        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtend.o
+ .data          0x0000000020000004        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+ *(.data*)
+ .data.led_timer.5505
+                0x0000000020000004        0x2 ./hardware.o
+ *fill*         0x0000000020000006        0x2 
+ .data.DELAY100MS
+                0x0000000020000008        0x4 ./lcd.o
+                0x0000000020000008                DELAY100MS
+ .data.DELAY10MS
+                0x000000002000000c        0x4 ./lcd.o
+                0x000000002000000c                DELAY10MS
+ .data.DELAY1MS
+                0x0000000020000010        0x4 ./lcd.o
+                0x0000000020000010                DELAY1MS
+ .data.state.5472
+                0x0000000020000014        0x1 ./lcd.o
+ .data.MINUTES1.5479
+                0x0000000020000015        0x1 ./lcd.o
+ .data.MINUTES2.5480
+                0x0000000020000016        0x1 ./lcd.o
+ .data.SECONDS1.5477
+                0x0000000020000017        0x1 ./lcd.o
+ .data.SECONDS2.5478
+                0x0000000020000018        0x1 ./lcd.o
+ *fill*         0x0000000020000019        0x3 
+ .data.TIMER1.5473
+                0x000000002000001c        0x4 ./lcd.o
+ .data.TIMER2.5474
+                0x0000000020000020        0x4 ./lcd.o
+ .data.TIMER3.5475
+                0x0000000020000024        0x4 ./lcd.o
+ .data.TIMER4.5476
+                0x0000000020000028        0x4 ./lcd.o
+ .data.state.5495
+                0x000000002000002c        0x1 ./lcd.o
+ .data.MINUTES1.5498
+                0x000000002000002d        0x1 ./lcd.o
+ .data.MINUTES2.5499
+                0x000000002000002e        0x1 ./lcd.o
+ *fill*         0x000000002000002f        0x1 
+ .data.TIMER1.5496
+                0x0000000020000030        0x4 ./lcd.o
+ .data.TIMER2.5497
+                0x0000000020000034        0x4 ./lcd.o
+ .data.state.5408
+                0x0000000020000038        0x1 ./trafficlight.o
+ *fill*         0x0000000020000039        0x1 
+ .data.timer.5409
+                0x000000002000003a        0x2 ./trafficlight.o
+ .data.timer.5430
+                0x000000002000003c        0x2 ./trafficlight.o
+ *fill*         0x000000002000003e        0x2 
+ .data.uxCriticalNesting
+                0x0000000020000040        0x4 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+ .data._impure_ptr
+                0x0000000020000044        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-impure.o)
+                0x0000000020000044                _impure_ptr
+ .data.impure_data
+                0x0000000020000048      0x428 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-impure.o)
+ .data.__atexit_recursive_mutex
+                0x0000000020000470        0x4 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
+                0x0000000020000470                __atexit_recursive_mutex
+                0x0000000020000474                . = ALIGN (0x4)
+                0x0000000020000474                __data_end__ = .
+
+.igot.plt       0x0000000020000474        0x0 load address 0x0000000000004014
+ .igot.plt      0x0000000020000474        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+
+.ARM.exidx      0x0000000000004014        0x8
+                0x0000000000004014                __exidx_start = .
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+ .ARM.exidx     0x0000000000004014        0x8 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
+                0x000000000000401c                __exidx_end = .
+
+.ARM.extab      0x000000000000401c        0x0
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ .ARM.extab     0x000000000000401c        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
+
+.rel.dyn        0x000000000000401c        0x0
+ .rel.iplt      0x000000000000401c        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+
+.bss            0x0000000020000478     0x1fac
+                0x0000000020000478                __bss_start__ = .
+ *(.shbss)
+ *(.bss)
+ .bss           0x0000000020000478        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crti.o
+ .bss           0x0000000020000478       0x1c /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ .bss           0x0000000020000494        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
+ .bss           0x0000000020000494        0x0 ./emp.o
+ .bss           0x0000000020000494        0x0 ./hardware.o
+ .bss           0x0000000020000494        0x0 ./keyboard.o
+ .bss           0x0000000020000494        0x0 ./lcd.o
+ .bss           0x0000000020000494        0x0 ./main.o
+ .bss           0x0000000020000494        0x0 ./systick_frt.o
+ .bss           0x0000000020000494        0x0 ./tm4c123gh6pm_startup_ccs_gcc.o
+ .bss           0x0000000020000494        0x0 ./trafficlight.o
+ .bss           0x0000000020000494        0x0 ./uart0.o
+ .bss           0x0000000020000494        0x0 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .bss           0x0000000020000494        0x0 ./FRT_Library/FreeRTOS/Source/list.o
+ .bss           0x0000000020000494        0x0 ./FRT_Library/FreeRTOS/Source/queue.o
+ .bss           0x0000000020000494        0x0 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss           0x0000000020000494        0x0 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/common.o
+ .bss           0x0000000020000494        0x0 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+ .bss           0x0000000020000494        0x0 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+ .bss           0x0000000020000494        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
+ .bss           0x0000000020000494        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-impure.o)
+ .bss           0x0000000020000494        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-init.o)
+ .bss           0x0000000020000494        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memcpy.o)
+ .bss           0x0000000020000494        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memset.o)
+ .bss           0x0000000020000494        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-strncpy.o)
+ .bss           0x0000000020000494        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
+ .bss           0x0000000020000494        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-atexit.o)
+ .bss           0x0000000020000494        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-fini.o)
+ .bss           0x0000000020000494        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+ .bss           0x0000000020000494        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__atexit.o)
+ .bss           0x0000000020000494        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
+ .bss           0x0000000020000494        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtend.o
+ .bss           0x0000000020000494        0x0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+ *(.bss.*)
+ .bss.button_state.5486
+                0x0000000020000494        0x1 ./hardware.o
+ *fill*         0x0000000020000495        0x1 
+ .bss.button_timer.5487
+                0x0000000020000496        0x2 ./hardware.o
+ .bss.state.5447
+                0x0000000020000498        0x1 ./keyboard.o
+ .bss.i.5451    0x0000000020000499        0x1 ./keyboard.o
+ .bss.inputPortE.5448
+                0x000000002000049a        0x1 ./keyboard.o
+ *fill*         0x000000002000049b        0x1 
+ .bss.pui32Stack
+                0x000000002000049c      0x200 ./tm4c123gh6pm_startup_ccs_gcc.o
+ .bss.state.5418
+                0x000000002000069c        0x1 ./trafficlight.o
+ .bss.state.5429
+                0x000000002000069d        0x1 ./trafficlight.o
+ .bss.tl_state.5444
+                0x000000002000069e        0x1 ./trafficlight.o
+ *fill*         0x000000002000069f        0x1 
+ .bss.pxReadyCoRoutineLists
+                0x00000000200006a0       0x28 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .bss.xDelayedCoRoutineList1
+                0x00000000200006c8       0x14 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .bss.xDelayedCoRoutineList2
+                0x00000000200006dc       0x14 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .bss.pxDelayedCoRoutineList
+                0x00000000200006f0        0x4 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .bss.pxOverflowDelayedCoRoutineList
+                0x00000000200006f4        0x4 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .bss.xPendingReadyCoRoutineList
+                0x00000000200006f8       0x14 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .bss.pxCurrentCoRoutine
+                0x000000002000070c        0x4 ./FRT_Library/FreeRTOS/Source/croutine.o
+                0x000000002000070c                pxCurrentCoRoutine
+ .bss.uxTopCoRoutineReadyPriority
+                0x0000000020000710        0x4 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .bss.xCoRoutineTickCount
+                0x0000000020000714        0x4 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .bss.xLastTickCount
+                0x0000000020000718        0x4 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .bss.xPassedTicks
+                0x000000002000071c        0x4 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .bss.pxCurrentTCB
+                0x0000000020000720        0x4 ./FRT_Library/FreeRTOS/Source/tasks.o
+                0x0000000020000720                pxCurrentTCB
+ .bss.pxReadyTasksLists
+                0x0000000020000724       0xc8 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.xDelayedTaskList1
+                0x00000000200007ec       0x14 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.xDelayedTaskList2
+                0x0000000020000800       0x14 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.pxDelayedTaskList
+                0x0000000020000814        0x4 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.pxOverflowDelayedTaskList
+                0x0000000020000818        0x4 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.xPendingReadyList
+                0x000000002000081c       0x14 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.xTasksWaitingTermination
+                0x0000000020000830       0x14 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.uxTasksDeleted
+                0x0000000020000844        0x4 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.xSuspendedTaskList
+                0x0000000020000848       0x14 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.uxCurrentNumberOfTasks
+                0x000000002000085c        0x4 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.xTickCount
+                0x0000000020000860        0x4 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.uxTopUsedPriority
+                0x0000000020000864        0x4 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.uxTopReadyPriority
+                0x0000000020000868        0x4 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.xSchedulerRunning
+                0x000000002000086c        0x4 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.uxSchedulerSuspended
+                0x0000000020000870        0x4 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.uxMissedTicks
+                0x0000000020000874        0x4 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.xMissedYield
+                0x0000000020000878        0x4 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.xNumOfOverflows
+                0x000000002000087c        0x4 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .bss.uxTaskNumber
+                0x0000000020000880        0x4 ./FRT_Library/FreeRTOS/Source/tasks.o
+ *fill*         0x0000000020000884        0x4 
+ .bss.xHeap     0x0000000020000888     0x1b58 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+ .bss.xStart    0x00000000200023e0        0x8 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+ .bss.xEnd      0x00000000200023e8        0x8 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+ .bss.xFreeBytesRemaining
+                0x00000000200023f0        0x4 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+ .bss.xHeapHasBeenInitialised.6194
+                0x00000000200023f4        0x4 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+ *(COMMON)
+ COMMON         0x00000000200023f8        0x4 ./emp.o
+                0x00000000200023f8                dummy1
+                0x00000000200023fa                dummy2
+ COMMON         0x00000000200023fc        0x2 ./lcd.o
+                0x00000000200023fc                first4bits
+                0x00000000200023fd                last4bits
+ *fill*         0x00000000200023fe        0x2 
+ COMMON         0x0000000020002400       0x21 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+                0x0000000020002400                __lock___atexit_recursive_mutex
+                0x0000000020002404                __lock___arc4random_mutex
+                0x0000000020002408                __lock___env_recursive_mutex
+                0x000000002000240c                __lock___sinit_recursive_mutex
+                0x0000000020002410                __lock___malloc_recursive_mutex
+                0x0000000020002414                __lock___at_quick_exit_mutex
+                0x0000000020002418                __lock___dd_hash_mutex
+                0x000000002000241c                __lock___tz_mutex
+                0x0000000020002420                __lock___sfp_recursive_mutex
+                0x0000000020002424                . = ALIGN (0x4)
+ *fill*         0x0000000020002421        0x3 
+                0x0000000020002424                __bss_end__ = .
+
+.heap           0x0000000020002424        0x0
+                0x0000000020002424                __heap_start__ = .
+                0x0000000020002424                end = __heap_start__
+                0x0000000020002424                _end = end
+                0x0000000020002424                __end = end
+ *(.heap)
+                0x0000000020002424                __heap_end__ = .
+                0x0000000020002424                __HeapLimit = __heap_end__
+
+.stack          0x0000000020002428        0x0
+                0x0000000020002428                _stack = .
+                0x0000000020002428                __stack = .
+ *(.stack)
+START GROUP
+LOAD /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a
+LOAD /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a
+LOAD /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc.a
+END GROUP
+START GROUP
+LOAD /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a
+LOAD /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc.a
+LOAD /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a
+END GROUP
+LOAD /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtend.o
+LOAD /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+OUTPUT(lastassignment.out elf32-littlearm)
+
+.ARM.attributes
+                0x0000000000000000       0x30
+ .ARM.attributes
+                0x0000000000000000       0x22 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crti.o
+ .ARM.attributes
+                0x0000000000000022       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ .ARM.attributes
+                0x0000000000000056       0x20 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/crt0.o
+ .ARM.attributes
+                0x0000000000000076       0x39 ./emp.o
+ .ARM.attributes
+                0x00000000000000af       0x39 ./hardware.o
+ .ARM.attributes
+                0x00000000000000e8       0x39 ./keyboard.o
+ .ARM.attributes
+                0x0000000000000121       0x39 ./lcd.o
+ .ARM.attributes
+                0x000000000000015a       0x39 ./main.o
+ .ARM.attributes
+                0x0000000000000193       0x39 ./systick_frt.o
+ .ARM.attributes
+                0x00000000000001cc       0x39 ./tm4c123gh6pm_startup_ccs_gcc.o
+ .ARM.attributes
+                0x0000000000000205       0x39 ./trafficlight.o
+ .ARM.attributes
+                0x000000000000023e       0x39 ./uart0.o
+ .ARM.attributes
+                0x0000000000000277       0x39 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .ARM.attributes
+                0x00000000000002b0       0x39 ./FRT_Library/FreeRTOS/Source/list.o
+ .ARM.attributes
+                0x00000000000002e9       0x39 ./FRT_Library/FreeRTOS/Source/queue.o
+ .ARM.attributes
+                0x0000000000000322       0x39 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .ARM.attributes
+                0x000000000000035b       0x39 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/common.o
+ .ARM.attributes
+                0x0000000000000394       0x39 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+ .ARM.attributes
+                0x00000000000003cd       0x39 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+ .ARM.attributes
+                0x0000000000000406       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
+ .ARM.attributes
+                0x000000000000043a       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-impure.o)
+ .ARM.attributes
+                0x000000000000046e       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-init.o)
+ .ARM.attributes
+                0x00000000000004a2       0x20 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memcpy.o)
+ .ARM.attributes
+                0x00000000000004c2       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memset.o)
+ .ARM.attributes
+                0x00000000000004f6       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-strncpy.o)
+ .ARM.attributes
+                0x000000000000052a       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
+ .ARM.attributes
+                0x000000000000055e       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-atexit.o)
+ .ARM.attributes
+                0x0000000000000592       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-fini.o)
+ .ARM.attributes
+                0x00000000000005c6       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+ .ARM.attributes
+                0x00000000000005fa       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__atexit.o)
+ .ARM.attributes
+                0x000000000000062e       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)
+ .ARM.attributes
+                0x0000000000000662       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtend.o
+ .ARM.attributes
+                0x0000000000000696       0x22 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+
+.comment        0x0000000000000000       0x7e
+ .comment       0x0000000000000000       0x7e ./emp.o
+                                         0x7f (size before relaxing)
+ .comment       0x000000000000007e       0x7f ./hardware.o
+ .comment       0x000000000000007e       0x7f ./keyboard.o
+ .comment       0x000000000000007e       0x7f ./lcd.o
+ .comment       0x000000000000007e       0x7f ./main.o
+ .comment       0x000000000000007e       0x7f ./systick_frt.o
+ .comment       0x000000000000007e       0x7f ./tm4c123gh6pm_startup_ccs_gcc.o
+ .comment       0x000000000000007e       0x7f ./trafficlight.o
+ .comment       0x000000000000007e       0x7f ./uart0.o
+ .comment       0x000000000000007e       0x7f ./FRT_Library/FreeRTOS/Source/croutine.o
+ .comment       0x000000000000007e       0x7f ./FRT_Library/FreeRTOS/Source/list.o
+ .comment       0x000000000000007e       0x7f ./FRT_Library/FreeRTOS/Source/queue.o
+ .comment       0x000000000000007e       0x7f ./FRT_Library/FreeRTOS/Source/tasks.o
+ .comment       0x000000000000007e       0x7f ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/common.o
+ .comment       0x000000000000007e       0x7f ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+ .comment       0x000000000000007e       0x7f ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+
+.debug_info     0x0000000000000000     0x537c
+ .debug_info    0x0000000000000000       0xcc ./emp.o
+ .debug_info    0x00000000000000cc      0x20f ./hardware.o
+ .debug_info    0x00000000000002db      0x316 ./keyboard.o
+ .debug_info    0x00000000000005f1      0x3f8 ./lcd.o
+ .debug_info    0x00000000000009e9      0x1d7 ./main.o
+ .debug_info    0x0000000000000bc0       0xc6 ./systick_frt.o
+ .debug_info    0x0000000000000c86      0x18e ./tm4c123gh6pm_startup_ccs_gcc.o
+ .debug_info    0x0000000000000e14      0x240 ./trafficlight.o
+ .debug_info    0x0000000000001054      0x248 ./uart0.o
+ .debug_info    0x000000000000129c      0x47c ./FRT_Library/FreeRTOS/Source/croutine.o
+ .debug_info    0x0000000000001718      0xac0 ./FRT_Library/FreeRTOS/Source/list.o
+ .debug_info    0x00000000000021d8      0xfbc ./FRT_Library/FreeRTOS/Source/queue.o
+ .debug_info    0x0000000000003194     0x1499 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .debug_info    0x000000000000462d       0xab ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/common.o
+ .debug_info    0x00000000000046d8      0x1cd ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+ .debug_info    0x00000000000048a5      0xad7 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+
+.debug_abbrev   0x0000000000000000     0x12ee
+ .debug_abbrev  0x0000000000000000       0x52 ./emp.o
+ .debug_abbrev  0x0000000000000052       0xf3 ./hardware.o
+ .debug_abbrev  0x0000000000000145      0x104 ./keyboard.o
+ .debug_abbrev  0x0000000000000249      0x11e ./lcd.o
+ .debug_abbrev  0x0000000000000367       0xe6 ./main.o
+ .debug_abbrev  0x000000000000044d       0x4a ./systick_frt.o
+ .debug_abbrev  0x0000000000000497       0xca ./tm4c123gh6pm_startup_ccs_gcc.o
+ .debug_abbrev  0x0000000000000561       0xb2 ./trafficlight.o
+ .debug_abbrev  0x0000000000000613       0xe2 ./uart0.o
+ .debug_abbrev  0x00000000000006f5      0x173 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .debug_abbrev  0x0000000000000868      0x1e0 ./FRT_Library/FreeRTOS/Source/list.o
+ .debug_abbrev  0x0000000000000a48      0x24a ./FRT_Library/FreeRTOS/Source/queue.o
+ .debug_abbrev  0x0000000000000c92      0x28e ./FRT_Library/FreeRTOS/Source/tasks.o
+ .debug_abbrev  0x0000000000000f20       0x6d ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/common.o
+ .debug_abbrev  0x0000000000000f8d       0xfa ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+ .debug_abbrev  0x0000000000001087      0x267 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+
+.debug_aranges  0x0000000000000000      0x598
+ .debug_aranges
+                0x0000000000000000       0x28 ./emp.o
+ .debug_aranges
+                0x0000000000000028       0x60 ./hardware.o
+ .debug_aranges
+                0x0000000000000088       0x28 ./keyboard.o
+ .debug_aranges
+                0x00000000000000b0       0x70 ./lcd.o
+ .debug_aranges
+                0x0000000000000120       0x50 ./main.o
+ .debug_aranges
+                0x0000000000000170       0x30 ./systick_frt.o
+ .debug_aranges
+                0x00000000000001a0       0x38 ./tm4c123gh6pm_startup_ccs_gcc.o
+ .debug_aranges
+                0x00000000000001d8       0x38 ./trafficlight.o
+ .debug_aranges
+                0x0000000000000210       0x70 ./uart0.o
+ .debug_aranges
+                0x0000000000000280       0x50 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .debug_aranges
+                0x00000000000002d0       0x40 ./FRT_Library/FreeRTOS/Source/list.o
+ .debug_aranges
+                0x0000000000000310       0xa8 ./FRT_Library/FreeRTOS/Source/queue.o
+ .debug_aranges
+                0x00000000000003b8      0x118 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .debug_aranges
+                0x00000000000004d0       0x20 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/common.o
+ .debug_aranges
+                0x00000000000004f0       0x70 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+ .debug_aranges
+                0x0000000000000560       0x38 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+
+.debug_ranges   0x0000000000000000      0x4b0
+ .debug_ranges  0x0000000000000000       0x18 ./emp.o
+ .debug_ranges  0x0000000000000018       0x50 ./hardware.o
+ .debug_ranges  0x0000000000000068       0x18 ./keyboard.o
+ .debug_ranges  0x0000000000000080       0x60 ./lcd.o
+ .debug_ranges  0x00000000000000e0       0x40 ./main.o
+ .debug_ranges  0x0000000000000120       0x20 ./systick_frt.o
+ .debug_ranges  0x0000000000000140       0x28 ./tm4c123gh6pm_startup_ccs_gcc.o
+ .debug_ranges  0x0000000000000168       0x28 ./trafficlight.o
+ .debug_ranges  0x0000000000000190       0x60 ./uart0.o
+ .debug_ranges  0x00000000000001f0       0x40 ./FRT_Library/FreeRTOS/Source/croutine.o
+ .debug_ranges  0x0000000000000230       0x30 ./FRT_Library/FreeRTOS/Source/list.o
+ .debug_ranges  0x0000000000000260       0x98 ./FRT_Library/FreeRTOS/Source/queue.o
+ .debug_ranges  0x00000000000002f8      0x120 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .debug_ranges  0x0000000000000418       0x10 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/common.o
+ .debug_ranges  0x0000000000000428       0x60 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+ .debug_ranges  0x0000000000000488       0x28 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+
+.debug_line     0x0000000000000000     0x220d
+ .debug_line    0x0000000000000000       0x59 ./emp.o
+ .debug_line    0x0000000000000059      0x218 ./hardware.o
+ .debug_line    0x0000000000000271      0x1bf ./keyboard.o
+ .debug_line    0x0000000000000430      0x257 ./lcd.o
+ .debug_line    0x0000000000000687      0x194 ./main.o
+ .debug_line    0x000000000000081b      0x143 ./systick_frt.o
+ .debug_line    0x000000000000095e      0x165 ./tm4c123gh6pm_startup_ccs_gcc.o
+ .debug_line    0x0000000000000ac3       0xeb ./trafficlight.o
+ .debug_line    0x0000000000000bae      0x1f7 ./uart0.o
+ .debug_line    0x0000000000000da5      0x20e ./FRT_Library/FreeRTOS/Source/croutine.o
+ .debug_line    0x0000000000000fb3      0x2c5 ./FRT_Library/FreeRTOS/Source/list.o
+ .debug_line    0x0000000000001278      0x472 ./FRT_Library/FreeRTOS/Source/queue.o
+ .debug_line    0x00000000000016ea      0x64d ./FRT_Library/FreeRTOS/Source/tasks.o
+ .debug_line    0x0000000000001d37       0xc0 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/common.o
+ .debug_line    0x0000000000001df7      0x1f8 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+ .debug_line    0x0000000000001fef      0x21e ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+
+.debug_str      0x0000000000000000     0x1bbb
+ .debug_str     0x0000000000000000      0x186 ./emp.o
+                                        0x1b4 (size before relaxing)
+ .debug_str     0x0000000000000186      0x148 ./hardware.o
+                                        0x2e8 (size before relaxing)
+ .debug_str     0x00000000000002ce       0x89 ./keyboard.o
+                                        0x25d (size before relaxing)
+ .debug_str     0x0000000000000357      0x144 ./lcd.o
+                                        0x336 (size before relaxing)
+ .debug_str     0x000000000000049b       0x6d ./main.o
+                                        0x24b (size before relaxing)
+ .debug_str     0x0000000000000508       0x43 ./systick_frt.o
+                                        0x1e8 (size before relaxing)
+ .debug_str     0x000000000000054b       0xbb ./tm4c123gh6pm_startup_ccs_gcc.o
+                                        0x253 (size before relaxing)
+ .debug_str     0x0000000000000606       0xc7 ./trafficlight.o
+                                        0x2a1 (size before relaxing)
+ .debug_str     0x00000000000006cd       0xd4 ./uart0.o
+                                        0x2a6 (size before relaxing)
+ .debug_str     0x00000000000007a1      0x35a ./FRT_Library/FreeRTOS/Source/croutine.o
+                                        0x4c9 (size before relaxing)
+ .debug_str     0x0000000000000afb      0x479 ./FRT_Library/FreeRTOS/Source/list.o
+                                        0x6d2 (size before relaxing)
+ .debug_str     0x0000000000000f74      0x36a ./FRT_Library/FreeRTOS/Source/queue.o
+                                        0x9a1 (size before relaxing)
+ .debug_str     0x00000000000012de      0x5d7 ./FRT_Library/FreeRTOS/Source/tasks.o
+                                        0xcc2 (size before relaxing)
+ .debug_str     0x00000000000018b5       0x5b ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/common.o
+                                        0x1da (size before relaxing)
+ .debug_str     0x0000000000001910      0x142 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+                                        0x2d6 (size before relaxing)
+ .debug_str     0x0000000000001a52      0x169 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+                                        0x6fd (size before relaxing)
+
+.debug_frame    0x0000000000000000     0x1530
+ .debug_frame   0x0000000000000000       0x50 ./emp.o
+ .debug_frame   0x0000000000000050      0x130 ./hardware.o
+ .debug_frame   0x0000000000000180       0x60 ./keyboard.o
+ .debug_frame   0x00000000000001e0      0x180 ./lcd.o
+ .debug_frame   0x0000000000000360       0xf4 ./main.o
+ .debug_frame   0x0000000000000454       0x70 ./systick_frt.o
+ .debug_frame   0x00000000000004c4       0x7c ./tm4c123gh6pm_startup_ccs_gcc.o
+ .debug_frame   0x0000000000000540       0xac ./trafficlight.o
+ .debug_frame   0x00000000000005ec      0x19c ./uart0.o
+ .debug_frame   0x0000000000000788      0x10c ./FRT_Library/FreeRTOS/Source/croutine.o
+ .debug_frame   0x0000000000000894       0xd8 ./FRT_Library/FreeRTOS/Source/list.o
+ .debug_frame   0x000000000000096c      0x2ac ./FRT_Library/FreeRTOS/Source/queue.o
+ .debug_frame   0x0000000000000c18      0x494 ./FRT_Library/FreeRTOS/Source/tasks.o
+ .debug_frame   0x00000000000010ac       0x30 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/common.o
+ .debug_frame   0x00000000000010dc      0x148 ./FRT_Library/FreeRTOS/Source/portable/GCC/ARM_CM4/port.o
+ .debug_frame   0x0000000000001224       0x98 ./FRT_Library/FreeRTOS/Source/portable/MemMang/heap_2.o
+ .debug_frame   0x00000000000012bc       0x28 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-exit.o)
+ .debug_frame   0x00000000000012e4       0x2c /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-init.o)
+ .debug_frame   0x0000000000001310       0x38 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-memset.o)
+ .debug_frame   0x0000000000001348       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-strncpy.o)
+ .debug_frame   0x000000000000137c       0x5c /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__call_atexit.o)
+ .debug_frame   0x00000000000013d8       0x20 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-atexit.o)
+ .debug_frame   0x00000000000013f8       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-fini.o)
+ .debug_frame   0x000000000000142c       0xb0 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-lock.o)
+ .debug_frame   0x00000000000014dc       0x34 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libg.a(lib_a-__atexit.o)
+ .debug_frame   0x0000000000001510       0x20 /opt/ti/ccsv8/tools/compiler/gcc-arm-none-eabi-7-2017-q4-major/bin/../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libnosys.a(_exit.o)

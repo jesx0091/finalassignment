@@ -84,16 +84,10 @@ void digiswitch_handler(void)
 
   }
 
-  if (GPIO_PORTA_IEV_R & BIT_5)    // er den sat til
-  {
-    // GPIO Interrupt Event (GPIOIEV)
-    bit_clear( GPIO_PORTA_IEV_R, BIT_5);    // Set falling edge or low level
-  }
-  else
-  {
-    // GPIO Interrupt Event (GPIOIEV)
-    bit_set( GPIO_PORTA_IEV_R, BIT_5);   // Set rising edge or a High level
-  }
+  // GPIO Interrupt Event (GPIOIEV)
+  bit_flip( GPIO_PORTA_IEV_R, BIT_5);   // flips rising and falling edge trigger
+
+
   // Clear int. for PA5
   bit_set(GPIO_PORTA_ICR_R, BIT_5);
 

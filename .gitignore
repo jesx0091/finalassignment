@@ -1,2 +1,6 @@
 
 Debug/
+
+*.prefs
+
+\.launches/finalassignment\.launch

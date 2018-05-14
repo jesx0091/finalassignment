@@ -23,6 +23,7 @@
 #include "FreeRTOS.h"
 #include "global.h"
 #include "lcd.h"
+#include "task.h"
 
 /*****************************    Defines    *******************************/
 #define     ESC      0x1B
@@ -73,68 +74,82 @@ void digiswitch_handler(void)
  *   Function :
  ******************************************************************************/
 {
+
   /* We have not woken a task at the start of the ISR. */
-
+  //portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE; // test ???
   uint8_t out = 0;
-  switch (last_int)
+  static uint32_t last_tick_count = 0;
+
+  /*
+   switch (last_int)
+   {
+   case FALING:
+   if (is_digi_A())
+   {
+   if (is_digi_A() == is_digi_B())
+   {
+   out = CCW;
+   lcd_writedata_position(15, 'k');
+   }
+   else
+   {
+   out = CW;
+   lcd_writedata_position(14, 'k');
+   }
+   }
+   last_int = RISING;
+   break;
+   case RISING:
+   if (!(is_digi_A()))
+   {
+   if (is_digi_A() == is_digi_B())
+   {
+   out = CCW;
+   lcd_writedata_position(13, 'k');
+   }
+   else
+   {
+   out = CW;
+   lcd_writedata_position(12, 'k');
+   }
+   }
+   last_int = FALING;
+   break;
+   } */
+
+
+  if (xTaskGetTickCount() - last_tick_count >= 1)
   {
-  case FALING:
-    if (is_digi_A())
+    // if A,B same -> CCW=0x10 else CW=0x01
+    out = is_digi_A() == is_digi_B() ? CCW : CW;
+    if (out)
     {
-      if (is_digi_A() == is_digi_B())
+      // her skal der puttes et event i en que
+
+      // for checking if it works
+
+      switch(out)
       {
-        out = CCW;
+      case CCW:
+        lcd_writedata_position(11, 'V');
+        break;
+      case CW:
+        lcd_writedata_position(11, 'H');
+        break;
+      default:
+        break;
       }
-      else
-      {
-        out = CW;
-      }
+
     }
-    last_int = RISING;
-    break;
-  case RISING:
-    if (!(is_digi_A()))
-    {
-      if (is_digi_A() == is_digi_B())
-      {
-        out = CCW;
-      }
-      else
-      {
-        out = CW;
-      }
-    }
-    last_int = FALING;
-    break;
+    last_tick_count = xTaskGetTickCount();
   }
-
-  // if A,B same -> CCW=0x10 else CW=0x01
-  //out = is_digi_A() == is_digi_B() ? CCW : CW;
-
-  if (out)
-  {
-    // her skal der puttes et event i en que
-
-    // for checking if it works
-    INT8U i = 0;
-    if (out == CW)
-    {
-      i = 'h';
-    }
-    else if (out == CCW)
-    {
-      i = 'v';
-    }
-    lcd_writedata_position(11, i);
-  }
-
   // GPIO Interrupt Event (GPIOIEV)
   // bit_flip( GPIO_PORTA_IEV_R, BIT_5);   // flips rising and falling edge trigger
 
   // Clear int. for PA5
   bit_set(GPIO_PORTA_ICR_R, BIT_5);
 
-  // portEND_SWITCHING_ISR(xHigherPriorityTaskWoken);
+  //portEND_SWITCHING_ISR(xHigherPriorityTaskWoken); // test ???
 }
 
 void init_digiswitch()
@@ -146,25 +161,24 @@ void init_digiswitch()
 {
   // Interrupt Sense  (GPIOIS)
   //bit_clear( GPIO_PORTA_IS_R, BIT_5 | BIT_6);   // Set PA5 & PA6 edge-sensitive
-  bit_clear(GPIO_PORTA_IS_R, BIT_5);   // Set PA5 edge-sensitive
+  bit_clear( GPIO_PORTA_IS_R, BIT_5 );   // Set PA5 edge-sensitive
 
   //  Interrupt Both Edges (GPIOIBE)
   //bit_clear( GPIO_PORTA_IBE_R, BIT_5 | BIT_6);
-  //bit_clear( GPIO_PORTA_IBE_R, BIT_5); // do not interrupt both edges
-  bit_set(GPIO_PORTA_IBE_R, BIT_5);// interrupt both edges
+  bit_set( GPIO_PORTA_IBE_R, BIT_5);
 
   // GPIO Interrupt Event (GPIOIEV)
-  //bit_set( GPIO_PORTA_IEV_R, BIT_5);    // Set rising edge or a High level
+  //bit_set( GPIO_PORTA_IEV_R, BIT_5 | BIT_6);    // Set rising edge or a High level
 
   // GPIO Interrupt Mask (GPIOIM)
   //bit_set( GPIO_PORTA_IM_R, BIT_5 | BIT_6);     // Unmask interrupt for PA5 & PA6
-  bit_set(GPIO_PORTA_IM_R, BIT_5);// Unmask interrupt for PA5
+  bit_set( GPIO_PORTA_IM_R, BIT_5);     // Unmask interrupt for PA5 & PA6
 
   // Set priority on INT0
   bit_clear(NVIC_PRI0_R, NVIC_PRI0_INT0_M);
-  bit_set(NVIC_PRI0_R, 0b101 << 5);               // Set interrupt priority 5
+  bit_set(NVIC_PRI0_R, 0b101<<5);               // Set interrupt priority 5
 
   // Enable NVIC interrupt 0
-  bit_set(NVIC_EN0_R, 1);
+  bit_set(NVIC_EN0_R, 1 );
 }
 

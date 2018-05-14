@@ -97,7 +97,7 @@ void (* const g_pfnVectors[])(void) =
     0,                                      // Reserved
     xPortPendSVHandler,                     // FreeRTOS PendSV Handler
     xPortSysTickHandler,                    // FreeRTOS SysTick Handler
-    digiswitch_handler,                      // GPIO Port A
+    digiswitch_handler,                     // GPIO Port A
     IntDefaultHandler,                      // GPIO Port B
     IntDefaultHandler,                      // GPIO Port C
     IntDefaultHandler,                      // GPIO Port D

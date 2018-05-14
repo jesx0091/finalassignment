@@ -21,6 +21,7 @@
 #include "tm4c123gh6pm.h"
 #include "emp_type.h"
 #include "FreeRTOS.h"
+#include "global.h"
 
 /*****************************    Defines    *******************************/
 #define     ESC      0x1B

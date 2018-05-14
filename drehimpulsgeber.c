@@ -78,27 +78,27 @@ void digiswitch_handler(void)
 
 
   // if A,B same -> CCW=0x10 else CW=0x01
-  out = is_digi_A() == is_digi_B() ? 0x10 : 0x01;
+  out = is_digi_A() == is_digi_B() ? CCW : CW;
 
   if (out)
   {
     // her skal der puttes et event i en que
 
     // for checking if it works
-    INT8U i = 0;
+    INT8U i;
     if (out == CW)
     {
-      i = 'k';
+      i = 'h';
     }
     else
     {
-      i = 'a';
+      i= 'v';
     }
     lcd_writedata_position(11, i);
   }
 
   // GPIO Interrupt Event (GPIOIEV)
-  bit_flip( GPIO_PORTA_IEV_R, BIT_5);   // flips rising and falling edge trigger
+ // bit_flip( GPIO_PORTA_IEV_R, BIT_5);   // flips rising and falling edge trigger
 
 
   // Clear int. for PA5
@@ -120,10 +120,11 @@ void init_digiswitch()
 
   //  Interrupt Both Edges (GPIOIBE)
   //bit_clear( GPIO_PORTA_IBE_R, BIT_5 | BIT_6);
-  bit_clear( GPIO_PORTA_IBE_R, BIT_5); // do not interrupt both edges
+  //bit_clear( GPIO_PORTA_IBE_R, BIT_5); // do not interrupt both edges
+  bit_set( GPIO_PORTA_IBE_R, BIT_5); // interrupt both edges
 
   // GPIO Interrupt Event (GPIOIEV)
-  bit_set( GPIO_PORTA_IEV_R, BIT_5);    // Set rising edge or a High level
+  //bit_set( GPIO_PORTA_IEV_R, BIT_5);    // Set rising edge or a High level
 
   // GPIO Interrupt Mask (GPIOIM)
   //bit_set( GPIO_PORTA_IM_R, BIT_5 | BIT_6);     // Unmask interrupt for PA5 & PA6

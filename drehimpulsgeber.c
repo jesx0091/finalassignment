@@ -28,10 +28,12 @@
 #define     ESC      0x1B
 #define     CCW      0x10
 #define     CW       0x01
+#define     FALING   0x00
+#define     RISING   0x01
 /*****************************   Constants   *******************************/
 
 /*****************************   Variables   *******************************/
-
+INT8U last_int = FALING;
 /*****************************   Functions   *******************************/
 
 INT8U is_digi_p2_pressed(void)
@@ -72,34 +74,62 @@ void digiswitch_handler(void)
  ******************************************************************************/
 {
   /* We have not woken a task at the start of the ISR. */
-//  BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-  uint8_t out = 0;
-  //const uint8_t esc = ESC;    / ved faktisk ikke lige hvad den her bruges til
 
+  uint8_t out = 0;
+  switch (last_int)
+  {
+  case FALING:
+    if (is_digi_A())
+    {
+      if (is_digi_A() == is_digi_B())
+      {
+        out = CCW;
+      }
+      else
+      {
+        out = CW;
+      }
+    }
+    last_int = RISING;
+    break;
+  case RISING:
+    if (!(is_digi_A()))
+    {
+      if (is_digi_A() == is_digi_B())
+      {
+        out = CCW;
+      }
+      else
+      {
+        out = CW;
+      }
+    }
+    last_int = FALING;
+    break;
+  }
 
   // if A,B same -> CCW=0x10 else CW=0x01
-  out = is_digi_A() == is_digi_B() ? CCW : CW;
+  //out = is_digi_A() == is_digi_B() ? CCW : CW;
 
   if (out)
   {
     // her skal der puttes et event i en que
 
     // for checking if it works
-    INT8U i;
+    INT8U i = 0;
     if (out == CW)
     {
       i = 'h';
     }
-    else
+    else if (out == CCW)
     {
-      i= 'v';
+      i = 'v';
     }
     lcd_writedata_position(11, i);
   }
 
   // GPIO Interrupt Event (GPIOIEV)
- // bit_flip( GPIO_PORTA_IEV_R, BIT_5);   // flips rising and falling edge trigger
-
+  // bit_flip( GPIO_PORTA_IEV_R, BIT_5);   // flips rising and falling edge trigger
 
   // Clear int. for PA5
   bit_set(GPIO_PORTA_ICR_R, BIT_5);
@@ -116,19 +146,19 @@ void init_digiswitch()
 {
   // Interrupt Sense  (GPIOIS)
   //bit_clear( GPIO_PORTA_IS_R, BIT_5 | BIT_6);   // Set PA5 & PA6 edge-sensitive
-  bit_clear( GPIO_PORTA_IS_R, BIT_5);   // Set PA5 edge-sensitive
+  bit_clear(GPIO_PORTA_IS_R, BIT_5);   // Set PA5 edge-sensitive
 
   //  Interrupt Both Edges (GPIOIBE)
   //bit_clear( GPIO_PORTA_IBE_R, BIT_5 | BIT_6);
   //bit_clear( GPIO_PORTA_IBE_R, BIT_5); // do not interrupt both edges
-  bit_set( GPIO_PORTA_IBE_R, BIT_5); // interrupt both edges
+  bit_set(GPIO_PORTA_IBE_R, BIT_5);// interrupt both edges
 
   // GPIO Interrupt Event (GPIOIEV)
   //bit_set( GPIO_PORTA_IEV_R, BIT_5);    // Set rising edge or a High level
 
   // GPIO Interrupt Mask (GPIOIM)
   //bit_set( GPIO_PORTA_IM_R, BIT_5 | BIT_6);     // Unmask interrupt for PA5 & PA6
-  bit_set( GPIO_PORTA_IM_R, BIT_5);     // Unmask interrupt for PA5
+  bit_set(GPIO_PORTA_IM_R, BIT_5);// Unmask interrupt for PA5
 
   // Set priority on INT0
   bit_clear(NVIC_PRI0_R, NVIC_PRI0_INT0_M);

@@ -31,19 +31,12 @@
 #include "uart0.h"
 #include "semphr.h"
 #include "queue.h"
+#include "global.h"
 
 /*****************************    Defines    *******************************/
-#define USERTASK_STACK_SIZE configMINIMAL_STACK_SIZE
-#define IDLE_PRIO 0
-#define LOW_PRIO  1
-#define MED_PRIO  2
-#define HIGH_PRIO 3
-
-#define BAUDRATE      19200
-#define DATABITS      8
-#define STOPBITS      1
-
 xSemaphoreHandle xSemaphore;
+
+xQueueHandle xQueue;
 
 /*****************************   Constants   *******************************/
 
@@ -139,6 +132,66 @@ static void UART( void *pvParameters )
   }
 }
 
+static void queue_producer( void *pvParameters )
+/*****************************************************************************
+ *   Input    :  -
+ *   Output   :  -
+ *   Function : Eksempel på queue.
+ *****************************************************************************/
+{
+  static INT16U queue_var = 48; // sender '0' til lcd-skærmen.
+
+  /* Create a queue capable of containing 8 INT16U values. */
+  xQueue = xQueueCreate(8, sizeof(INT16U));
+
+  if (xQueue == NULL)
+  {
+    /* Queue was not created and must not be used. */
+  }
+
+  if (xQueue != 0)
+  {
+    /* Send an unsigned long.  Wait for 10 ticks for space to become
+     available if necessary. */
+  }
+    while (1)
+    {
+      if ( xQueueSendToBack( xQueue,
+          ( void * ) &queue_var,
+          ( portTickType ) 10 ) != pdPASS)
+      {
+        /* Failed to post the message, even after 10 ticks. */
+      }
+      queue_var++;
+      vTaskDelay(25);     // udskriver lynhurtigt.
+    }
+}
+
+static void queue_consumer ( void *pvParameters )
+/*****************************************************************************
+ *   Input    :  -
+ *   Output   :  -
+ *   Function : queue consumer
+ *****************************************************************************/
+{
+  while (1)
+  {
+    INT16U received_var;
+    if (xQueue != 0)
+    {
+      // Receive a message on the created queue.  Block for 10 ticks if a
+      // message is not immediately available.
+      if (xQueueReceive(xQueue, &(received_var), (portTickType ) 10))
+      {
+        // pcRxedMessage now points to the struct AMessage variable posted
+        // by vATask.
+        lcd_writedata_position(15, received_var);
+      }
+    }
+    vTaskDelay(300);      // læser for langsomt, bare for eksemplets skyld.
+  }
+}
+
 static void setupHardware( void )
 /*****************************************************************************
  *   Input    :  -
@@ -183,6 +236,12 @@ int main( void )
                               MED_PRIO, NULL);
 
   return_value &= xTaskCreate(UART, "UART", USERTASK_STACK_SIZE, NULL, MED_PRIO,
+                              NULL);
+
+  return_value &= xTaskCreate(queue_producer, "Queue eksempel1", USERTASK_STACK_SIZE, NULL, MED_PRIO,
+                              NULL);
+
+  return_value &= xTaskCreate(queue_consumer, "Queue eksempel2", USERTASK_STACK_SIZE, NULL, MED_PRIO,
                               NULL);
 
   lcd_init();           // Init the LCD-screen

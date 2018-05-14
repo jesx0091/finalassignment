@@ -1,21 +1,21 @@
 /*****************************************************************************
-* University of Southern Denmark
-* Embedded Programming (EMP)
-*
-* MODULENAME.: main.c
-*
-* PROJECT....: EMP
-*
-* DESCRIPTION: Last assignment, main module. No main.h file.
-*
-* Change Log:
-*****************************************************************************
-* Date    Id    Change
-* YYMMDD
-* --------------------
-* 180511  Jes   Module created.
-*
-*****************************************************************************/
+ * University of Southern Denmark
+ * Embedded Programming (EMP)
+ *
+ * MODULENAME.: main.c
+ *
+ * PROJECT....: EMP
+ *
+ * DESCRIPTION: Last assignment, main module. No main.h file.
+ *
+ * Change Log:
+ *****************************************************************************
+ * Date    Id    Change
+ * YYMMDD
+ * --------------------
+ * 180511  Jes   Module created.
+ *
+ *****************************************************************************/
 
 /***************************** Include files *******************************/
 #include <stdint.h>
@@ -45,7 +45,6 @@
 
 xSemaphoreHandle xSemaphore;
 
-
 /*****************************   Constants   *******************************/
 
 /*****************************   Variables   *******************************/
@@ -54,71 +53,71 @@ xSemaphoreHandle xSemaphore;
 
 int putChar()
 /*****************************************************************************
-*   Input    :  -
-*   Output   :  Result
-*   Function :  putChar for FreeRTOS debug functionality.
-*****************************************************************************/
+ *   Input    :  -
+ *   Output   :  Result
+ *   Function :  putChar for FreeRTOS debug functionality.
+ *****************************************************************************/
 {
-  return(0);
+  return (0);
 }
 
-static void readkeyboard(void *pvParameters)
+static void readkeyboard( void *pvParameters )
 /*****************************************************************************
-*   Input    :  Process Parameters
-*   Output   :  -
-*   Function :  EMP board alive led task
-*****************************************************************************/
+ *   Input    :  Process Parameters
+ *   Output   :  -
+ *   Function :  EMP board alive led task
+ *****************************************************************************/
 {
-  while(1)
+  while (1)
   {
-      readkeyboardtask();
-      vTaskDelay(5);
+    readkeyboardtask();
+    vTaskDelay(5);
   }
 }
 
 static void emp_board_alive( void *pvParameters )
 /*****************************************************************************
-*   Input    :  Process Parameters
-*   Output   :  -
-*   Function :  EMP board alive led task
-*****************************************************************************/
+ *   Input    :  Process Parameters
+ *   Output   :  -
+ *   Function :  EMP board alive led task
+ *****************************************************************************/
 {
-  while( 1 )
+  while (1)
   {
-      if( xSemaphore != NULL )
+    if (xSemaphore != NULL)
+    {
+      if (xSemaphoreTake(xSemaphore, portMAX_DELAY))
       {
-          if( xSemaphoreTake( xSemaphore, portMAX_DELAY ))
-          {
-            emp_toggle_status_led();
-            vTaskDelay(150);
-            xSemaphoreGive( xSemaphore );
-            taskYIELD();
-          }
+        emp_toggle_status_led();
+        vTaskDelay(150);
+        xSemaphoreGive(xSemaphore);
+        taskYIELD();
       }
+    }
   }
 }
 
-static void write(void *pvParameters)
+static void write( void *pvParameters )
 /*****************************************************************************
-*   Input    :  Process Parameters
-*   Output   :  -
-*   Function :  EMP board alive led task
-*****************************************************************************/
+ *   Input    :  Process Parameters
+ *   Output   :  -
+ *   Function :  EMP board alive led task
+ *****************************************************************************/
 {
-  while(1)
+  while (1)
   {
     //lcd_display_time();   // Sets ':'
     lcd_seconds();
-    delayms(400);           // Vil af en eller anden grund ikke køre med vTaskDelay
+    delayms(400);        // Vil af en eller anden grund ikke køre med vTaskDelay
   }
 }
 
-static void UART(void *pvParameters)
+static void UART( void *pvParameters )
 /*****************************************************************************
-*   Input    :  Process Parameters
-*   Output   :  -
-*   Function :  UART
-*****************************************************************************/
+ *   Input    :  Process Parameters
+ *   Output   :  -
+ *   Function :  UART
+ *****************************************************************************/
 {
   while (1)
   {
@@ -140,34 +139,31 @@ static void UART(void *pvParameters)
   }
 }
 
-static void setupHardware(void)
+static void setupHardware( void )
 /*****************************************************************************
-*   Input    :  -
-*   Output   :  -
-*   Function :
-*****************************************************************************/
+ *   Input    :  -
+ *   Output   :  -
+ *   Function :
+ *****************************************************************************/
 {
   // TODO: Put hardware configuration and initialisation in here
   //enum sw1_events sw1_event;
-    //INT8U lol[2] = { '1', '\0' };     // Forsøg med at sende parameter til initialisering af parity.
+  //INT8U lol[2] = { '1', '\0' };     // Forsøg med at sende parameter til initialisering af parity.
 
   uart0_init(BAUDRATE, DATABITS, STOPBITS, 'n');
   hardware_init();      // Init the hardware
   emp_clear_leds();     // Turn off EMP leds // RETTET. Fjernet ~.
 
-
   // Warning: If you do not initialize the hardware clock, the timings will be inaccurate
   init_systick();
 }
 
-
-
-int main(void)
+int main( void )
 /*****************************************************************************
-*   Input    :
-*   Output   :
-*   Function : The super loop.
-******************************************************************************/
+ *   Input    :
+ *   Output   :
+ *   Function : The super loop.
+ ******************************************************************************/
 {
   portBASE_TYPE return_value = pdTRUE;
 
@@ -177,24 +173,25 @@ int main(void)
 
   // Start the tasks.
   // ----------------
-  return_value &= xTaskCreate( readkeyboard, "Read Keyboard",
-                               USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL );
+  return_value &= xTaskCreate(readkeyboard, "Read Keyboard",
+                              USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL);
 
-  return_value &= xTaskCreate( emp_board_alive, "EMP Board Alive",
-                               USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL );
+  return_value &= xTaskCreate(emp_board_alive, "EMP Board Alive",
+                              USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL);
 
-  return_value &= xTaskCreate( write, "Time",
-                               USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL );
+  return_value &= xTaskCreate(write, "Time", USERTASK_STACK_SIZE, NULL,
+                              MED_PRIO, NULL);
 
-  return_value &= xTaskCreate( UART, "UART",
-                               USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL );
+  return_value &= xTaskCreate(UART, "UART", USERTASK_STACK_SIZE, NULL, MED_PRIO,
+                              NULL);
 
   lcd_init();           // Init the LCD-screen
 
   if (return_value != pdTRUE)
   {
     GPIO_PORTD_DATA_R &= 0xBF;  // Turn on status LED.
-    while(1);  // cold not create one or more tasks.
+    while (1)
+      ;  // cold not create one or more tasks.
   }
 
   // Start the scheduler.

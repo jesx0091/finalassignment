@@ -22,7 +22,7 @@
 #include "systick_frt.h"
 #include "hardware.h"
 #include "lcd.h"
-
+#include "drehimpulsgeber.h"
 /*****************************    Defines    *******************************/
 #define TIM_2_SEC           2000
 #define TIM_100_MSEC         100
@@ -223,12 +223,13 @@ void hardware_init()
  *   Header description
  ******************************************************************************/
 {
+
   // disable global interrupt
   disable_global_int();
 
   // Initialize the Tiva board
   init_tiva_board();
-
+  init_digiswitch();
   init_systick();
 
   // Enable global interrupt

@@ -90,18 +90,24 @@ static void emp_board_alive( void *pvParameters )
   }
 }
 
-static void write( void *pvParameters )
+static void timer( void *pvParameters )
 /*****************************************************************************
  *   Input    :  Process Parameters
  *   Output   :  -
  *   Function :  EMP board alive led task
  *****************************************************************************/
 {
+  INT8U time[] = {'0','1','2','3','4','5','6','7','8','9','\n'};
+  static int i = 0;
   while (1)
   {
-    //lcd_display_time();   // Sets ':'
-    lcd_seconds();
-    delayms(400);        // Vil af en eller anden grund ikke køre med vTaskDelay
+    lcd_writedata_position(0, time[i]);
+    i++;
+    if( i > 9 )
+    {
+    i = 0;
+    }
+    vTaskDelay(1000/portTICK_RATE_MS);        // timing med delay her! Resten er ligegyldigt / debugging. Sat til 1000ms = 1s.
   }
 }
 
@@ -232,7 +238,7 @@ int main( void )
   return_value &= xTaskCreate(emp_board_alive, "EMP Board Alive",
                               USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL);
 
-  return_value &= xTaskCreate(write, "Time", USERTASK_STACK_SIZE, NULL,
+  return_value &= xTaskCreate(timer, "Time", USERTASK_STACK_SIZE, NULL,
                               MED_PRIO, NULL);
 
   return_value &= xTaskCreate(UART, "UART", USERTASK_STACK_SIZE, NULL, MED_PRIO,

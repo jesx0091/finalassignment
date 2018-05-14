@@ -33,6 +33,16 @@
 #define BIT_6     0x40
 #define BIT_7     0x80
 
+#define USERTASK_STACK_SIZE configMINIMAL_STACK_SIZE
+#define IDLE_PRIO 0
+#define LOW_PRIO  1
+#define MED_PRIO  2
+#define HIGH_PRIO 3
+
+#define BAUDRATE      19200
+#define DATABITS      8
+#define STOPBITS      1
+
 /********************* Macros **********************************************/
 #define bit_get(p,m) ((p) & (m))
 #define bit_set(p,m) ((p) |= (m))

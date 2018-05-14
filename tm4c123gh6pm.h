@@ -12787,4 +12787,18 @@
                                             // (RM) mode
 #define NVIC_FPDSC_RMODE_RZ     0x00C00000  // Round towards Zero (RZ) mode
 
+/*****************************************************************************
+ *
+ * This is our own defines.
+ *
+ *****************************************************************************/
+#define BIT_0                   0x00000001
+#define BIT_1                   0x00000010
+#define BIT_2                   0x00000100
+#define BIT_3                   0x00001000
+#define BIT_4                   0x00010000
+#define BIT_5                   0x00100000
+#define BIT_6                   0x01000000
+#define BIT_7                   0x10000000
+
 #endif // __TM4C123GH6PM_H__

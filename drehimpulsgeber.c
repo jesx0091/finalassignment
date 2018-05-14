@@ -22,10 +22,12 @@
 #include "emp_type.h"
 #include "FreeRTOS.h"
 #include "global.h"
+#include "lcd.h"
 
 /*****************************    Defines    *******************************/
 #define     ESC      0x1B
-
+#define     CCW      0x10
+#define     CW       0x01
 /*****************************   Constants   *******************************/
 
 /*****************************   Variables   *******************************/
@@ -82,6 +84,16 @@ void digiswitch_handler(void)
   {
     // her skal der puttes et event i en que
 
+    // for checking if it works
+  /*  if (out == CW)
+    {
+
+    }
+    else
+    {
+
+    } */
+    lcd_writedata_position(10, 'k')
   }
 
   // GPIO Interrupt Event (GPIOIEV)

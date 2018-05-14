@@ -29,6 +29,8 @@
 #include "trafficlight.h"
 #include "lcd.h"
 #include "uart0.h"
+#include "semphr.h"
+#include "queue.h"
 
 /*****************************    Defines    *******************************/
 #define USERTASK_STACK_SIZE configMINIMAL_STACK_SIZE
@@ -41,13 +43,14 @@
 #define DATABITS      8
 #define STOPBITS      1
 
+xSemaphoreHandle xSemaphore;
+
 
 /*****************************   Constants   *******************************/
 
 /*****************************   Variables   *******************************/
 
 /*****************************   Functions   *******************************/
-
 
 int putChar()
 /*****************************************************************************
@@ -59,7 +62,7 @@ int putChar()
   return(0);
 }
 
-void emp_board_alive(void *pvParameters)
+static void readkeyboard(void *pvParameters)
 /*****************************************************************************
 *   Input    :  Process Parameters
 *   Output   :  -
@@ -68,26 +71,34 @@ void emp_board_alive(void *pvParameters)
 {
   while(1)
   {
-    emp_toggle_status_led();
-    vTaskDelay(150);
+      readkeyboardtask();
+      vTaskDelay(5);
   }
 }
 
-void readkeyboard(void *pvParameters)
+static void emp_board_alive( void *pvParameters )
 /*****************************************************************************
 *   Input    :  Process Parameters
 *   Output   :  -
 *   Function :  EMP board alive led task
 *****************************************************************************/
 {
-  while(1)
+  while( 1 )
   {
-    readkeyboardtask();
-    vTaskDelay(5);
+      if( xSemaphore != NULL )
+      {
+          if( xSemaphoreTake( xSemaphore, portMAX_DELAY ))
+          {
+            emp_toggle_status_led();
+            vTaskDelay(150);
+            xSemaphoreGive( xSemaphore );
+            taskYIELD();
+          }
+      }
   }
 }
 
-void write(void *pvParameters)
+static void write(void *pvParameters)
 /*****************************************************************************
 *   Input    :  Process Parameters
 *   Output   :  -
@@ -102,17 +113,30 @@ void write(void *pvParameters)
   }
 }
 
-void UART(void *pvParameters)
+static void UART(void *pvParameters)
 /*****************************************************************************
 *   Input    :  Process Parameters
 *   Output   :  -
 *   Function :  UART
 *****************************************************************************/
 {
-  while(1)
+  while (1)
   {
-    uart0_sendchar( 74 );
+    uart0_sendchar(74);
     vTaskDelay(200);
+
+    if (xSemaphore != NULL)
+    {
+      //if( xSemaphoreTake( xSemaphore, ( portTickType ) 100 ) == pdTRUE )
+      if (xSemaphoreTake(xSemaphore, portMAX_DELAY))
+      {
+        static INT8U i = 40;
+        lcd_writedata_position(9, i);
+        i++;
+        xSemaphoreGive(xSemaphore);
+        taskYIELD();
+      }
+    }
   }
 }
 
@@ -149,12 +173,14 @@ int main(void)
 
   setupHardware();
 
+  xSemaphore = xSemaphoreCreateMutex();
+
   // Start the tasks.
   // ----------------
-  return_value &= xTaskCreate( emp_board_alive, "EMP Board Alive",
+  return_value &= xTaskCreate( readkeyboard, "Read Keyboard",
                                USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL );
 
-  return_value &= xTaskCreate( readkeyboard, "Read Keyboard",
+  return_value &= xTaskCreate( emp_board_alive, "EMP Board Alive",
                                USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL );
 
   return_value &= xTaskCreate( write, "Time",

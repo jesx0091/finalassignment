@@ -75,7 +75,7 @@ void digiswitch_handler(void)
 //  BaseType_t xHigherPriorityTaskWoken = pdFALSE;
   uint8_t out = 0;
   //const uint8_t esc = ESC;    / ved faktisk ikke lige hvad den her bruges til
-  static uint32_t last_ticks = 0;
+
 
   // if A,B same -> CCW=0x10 else CW=0x01
   out = is_digi_A() == is_digi_B() ? 0x10 : 0x01;
@@ -85,15 +85,16 @@ void digiswitch_handler(void)
     // her skal der puttes et event i en que
 
     // for checking if it works
-  /*  if (out == CW)
+    INT8U i = 0;
+    if (out == CW)
     {
-
+      i = 'k';
     }
     else
     {
-
-    } */
-    lcd_writedata_position(10, 'k')
+      i = 'a';
+    }
+    lcd_writedata_position(11, i);
   }
 
   // GPIO Interrupt Event (GPIOIEV)

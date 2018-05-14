@@ -69,7 +69,7 @@ static uint32_t pui32Stack[128];
 //
 //*****************************************************************************
 // To be added by user
-
+void digiswitch_handler( void );
 //*****************************************************************************
 //
 // The vector table.  Note that the proper constructs must be placed on this to
@@ -97,7 +97,7 @@ void (* const g_pfnVectors[])(void) =
     0,                                      // Reserved
     xPortPendSVHandler,                     // FreeRTOS PendSV Handler
     xPortSysTickHandler,                    // FreeRTOS SysTick Handler
-    IntDefaultHandler,                      // GPIO Port A
+    digiswitch_handler,                      // GPIO Port A
     IntDefaultHandler,                      // GPIO Port B
     IntDefaultHandler,                      // GPIO Port C
     IntDefaultHandler,                      // GPIO Port D

@@ -210,7 +210,7 @@ void init_tiva_board()
   GPIO_PORTD_DEN_R = 0x4C;    // 0b01001100
   // Enable the GPIO pins for digital function (PD4-PD7)
   GPIO_PORTC_DEN_R = 0xF0;    // 0b11110000
-  GPIO_PORTA_DEN_R = 0x1F;    // 0b00011100    (PA2-PA4)
+  GPIO_PORTA_DEN_R = 0xFF;    // 0b11111111    (PA0-PA7)
   GPIO_PORTE_DEN_R = 0x1F;    // 0b00001111    (PE0-PE3)
 
   // GPIO PullUp Resistor (GPIOPUR)

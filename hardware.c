@@ -22,6 +22,7 @@
 #include "systick_frt.h"
 #include "hardware.h"
 #include "lcd.h"
+#include "global.h"
 #include "drehimpulsgeber.h"
 /*****************************    Defines    *******************************/
 #define TIM_2_SEC           2000

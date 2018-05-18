@@ -18,15 +18,26 @@
 *****************************************************************************/
 
 /***************************** Include files *******************************/
+#include <stdint.h>
+#include "tm4c123gh6pm.h"
 #include "emp_type.h"
+#include "systick_frt.h"
+#include "FreeRTOS.h"
+#include "task.h"
+#include "keyboard.h"
+#include "hardware.h"
+#include "trafficlight.h"
+#include "lcd.h"
+#include "semphr.h"
+#include "queue.h"
+#include "global.h"
 /*****************************    Defines    *******************************/
 
 /*****************************   Constants   *******************************/
 
 /*****************************   Variables   *******************************/
 
-INT8U    dummy1;
-INT16S   dummy2;
+
 
 /*****************************   Functions   *******************************/
 
@@ -37,7 +48,7 @@ void test1(void)
 *   Function :
 ******************************************************************************/
 {
-  dummy1++;
+
 }
 
 extern void test2(void)
@@ -45,7 +56,7 @@ extern void test2(void)
 *   Function : See module specification (.h-file).
 *****************************************************************************/
 {
-  dummy2++;
+
 }
 
 /****************************** End Of Module *******************************/

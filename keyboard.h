@@ -32,7 +32,14 @@
 
 INT8U key_catch( INT8U, INT8U );
 
-extern void readkeyboardtask(void);
+void sendtoqueue(INT8U);
+/*****************************************************************************
+*   Input    : pressed input
+*   Output   :
+*   Function : Sends to key queue
+******************************************************************************/
+
+extern void readkeyboardtask(void *pvParameters);
 /*****************************************************************************
 *   Input    : -
 *   Output   : -

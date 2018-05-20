@@ -37,6 +37,7 @@
 xSemaphoreHandle xSemaphore;
 
 xQueueHandle xQueue;
+extern xQueueHandle keyQueue;
 
 /*****************************   Constants   *******************************/
 
@@ -52,20 +53,6 @@ int putChar()
  *****************************************************************************/
 {
   return (0);
-}
-
-static void readkeyboard( void *pvParameters )
-/*****************************************************************************
- *   Input    :  Process Parameters
- *   Output   :  -
- *   Function :  EMP board alive led task
- *****************************************************************************/
-{
-  while (1)
-  {
-    readkeyboardtask();
-    vTaskDelay(5);
-  }
 }
 
 static void emp_board_alive( void *pvParameters )
@@ -198,6 +185,33 @@ static void queue_consumer ( void *pvParameters )
   }
 }
 
+static void debug_testfunc ( void *pvParameters )
+/*****************************************************************************
+ *   Input    :  -
+ *   Output   :  -
+ *   Function : Testfunktion. Alt må overskrives her.
+ *****************************************************************************/
+{
+  while (1)
+  {
+    INT8U received_var;
+    static INT8U i = 1;
+    if (keyQueue != 0)
+    {
+      // Receive a message on the created queue.  Block for 10 ticks if a
+      // message is not immediately available.
+      if (xQueueReceive(keyQueue, &(received_var), (portTickType ) 10))
+      {
+        // pcRxedMessage now points to the struct AMessage variable posted
+        // by vATask.
+        lcd_writedata_position(i, received_var);
+        i++;
+      }
+    }
+    vTaskDelay(5);      // læser for langsomt, bare for eksemplets skyld.
+  }
+}
+
 static void setupHardware( void )
 /*****************************************************************************
  *   Input    :  -
@@ -232,7 +246,7 @@ int main( void )
 
   // Start the tasks.
   // ----------------
-  return_value &= xTaskCreate(readkeyboard, "Read Keyboard",
+  return_value &= xTaskCreate(readkeyboardtask, "Read Keyboard",
                               USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL);
 
   return_value &= xTaskCreate(emp_board_alive, "EMP Board Alive",
@@ -249,6 +263,11 @@ int main( void )
 
   return_value &= xTaskCreate(queue_consumer, "Queue eksempel2", USERTASK_STACK_SIZE, NULL, MED_PRIO,
                               NULL);
+
+  return_value &= xTaskCreate(debug_testfunc, "Debugging", USERTASK_STACK_SIZE, NULL, MED_PRIO,
+                              NULL);
+
+
 
   lcd_init();           // Init the LCD-screen
 

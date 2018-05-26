@@ -22,26 +22,35 @@
 #include "tm4c123gh6pm.h"
 #include "emp_type.h"
 #include "systick_frt.h"
+#include "hardware.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "global.h"
 #include "keyboard.h"
-#include "hardware.h"
-#include "trafficlight.h"
+#include "inputtask.h"
 #include "lcd.h"
 #include "uart0.h"
 #include "semphr.h"
 #include "queue.h"
-#include "global.h"
 
 /*****************************    Defines    *******************************/
 xSemaphoreHandle xSemaphore;
 
 xQueueHandle xQueue;
-extern xQueueHandle keyQueue;
+extern xQueueHandle keyQueue;    // INT8U med maks 8 elementer.
+
+typedef struct{
+  char accountnr[7];
+  char pin[5];
+} account;
+
+account accounts[6];
 
 /*****************************   Constants   *******************************/
 
 /*****************************   Variables   *******************************/
+
+/*****************************   Functions   *******************************/
 
 /*****************************   Functions   *******************************/
 
@@ -194,21 +203,75 @@ static void debug_testfunc ( void *pvParameters )
 {
   while (1)
   {
-    INT8U received_var;
-    static INT8U i = 1;
+  }
+}
+
+void inputtask(void *pvParameters)
+/*****************************************************************************
+*   Input    :
+*   Output   :
+*   Function :
+******************************************************************************/
+{
+  // State machine i stedet?
+
+  static INT8U position = 0;
+  static useraccount = 0;
+  INT8U received_key;
+
+  while (1)
+  {
+    // Keyboard press received?
     if (keyQueue != 0)
     {
       // Receive a message on the created queue.  Block for 10 ticks if a
       // message is not immediately available.
-      if (xQueueReceive(keyQueue, &(received_var), (portTickType ) 10))
+      if (xQueueReceive(keyQueue, &(received_key), (portTickType ) 10))
       {
-        // pcRxedMessage now points to the struct AMessage variable posted
-        // by vATask.
-        lcd_writedata_position(i, received_var);
-        i++;
+        lcd_writedata_position(5, received_key);
+
+        switch(received_key)
+        {
+        case '1':
+          strcat(accounts[useraccount].accountnr,"1");
+          break;
+        case '2':
+          strcat(accounts[useraccount].accountnr,"2");
+          break;
+        case '3':
+          strcat(accounts[useraccount].accountnr,"3");
+          break;
+        case '4':
+          strcat(accounts[useraccount].accountnr,"4");
+          break;
+        case '5':
+          strcat(accounts[useraccount].accountnr,"5");
+          break;
+        case '6':
+          strcat(accounts[useraccount].accountnr,"6");
+          break;
+        case '7':
+          strcat(accounts[useraccount].accountnr,"7");
+          break;
+        case '8':
+          strcat(accounts[useraccount].accountnr,"8");
+          break;
+        case '9':
+          strcat(accounts[useraccount].accountnr,"9");
+          break;
+        default:
+            break;
+        }
+
+        INT8U tolcd;
+        for (INT8U i = 0; i < sizeof(accounts[0].accountnr); i++)
+        {
+        tolcd = accounts[0].accountnr[i];
+        lcd_writedata_position((2+i), tolcd);
+        }
+
       }
     }
-    vTaskDelay(5);      // læser for langsomt, bare for eksemplets skyld.
   }
 }
 
@@ -264,9 +327,11 @@ int main( void )
   return_value &= xTaskCreate(queue_consumer, "Queue eksempel2", USERTASK_STACK_SIZE, NULL, MED_PRIO,
                               NULL);
 
-  return_value &= xTaskCreate(debug_testfunc, "Debugging", USERTASK_STACK_SIZE, NULL, MED_PRIO,
-                              NULL);
+//  return_value &= xTaskCreate(debug_testfunc, "Debugging", USERTASK_STACK_SIZE, NULL, MED_PRIO,
+//                              NULL);
 
+  return_value &= xTaskCreate(inputtask, "Input", USERTASK_STACK_SIZE, NULL, MED_PRIO,
+                              NULL);
 
 
   lcd_init();           // Init the LCD-screen

@@ -49,6 +49,7 @@ account accounts[6];
 /*****************************   Constants   *******************************/
 
 /*****************************   Variables   *******************************/
+INT8U productchoice;
 
 /*****************************   Functions   *******************************/
 
@@ -169,7 +170,7 @@ static void queue_producer( void *pvParameters )
     }
 }
 
-static void queue_consumer ( void *pvParameters )
+static void queue_consumer(void *pvParameters)
 /*****************************************************************************
  *   Input    :  -
  *   Output   :  -
@@ -194,7 +195,7 @@ static void queue_consumer ( void *pvParameters )
   }
 }
 
-static void debug_testfunc ( void *pvParameters )
+static void debug_testfunc(void *pvParameters)
 /*****************************************************************************
  *   Input    :  -
  *   Output   :  -
@@ -208,16 +209,22 @@ static void debug_testfunc ( void *pvParameters )
 
 void inputtask(void *pvParameters)
 /*****************************************************************************
-*   Input    :
-*   Output   :
-*   Function :
-******************************************************************************/
+ *   Input    :
+ *   Output   :
+ *   Function :
+ ******************************************************************************/
 {
   // State machine i stedet?
 
-  static INT8U position = 0;
+  static INT8U INPUTPOS = 0;
   static useraccount = 0;
+  INT8U tolcd;
   INT8U received_key;
+
+  static enum states
+  {
+    NOUSE1, NOUSE2, NOUSE3, NOUSE4, INPUTACCOUNTNR, INPUTPINNR, PRODUCT, DONE
+  } state = INPUTACCOUNTNR;
 
   while (1)
   {
@@ -228,48 +235,120 @@ void inputtask(void *pvParameters)
       // message is not immediately available.
       if (xQueueReceive(keyQueue, &(received_key), (portTickType ) 10))
       {
-        lcd_writedata_position(5, received_key);
+        lcd_writedata_position(13, received_key);
 
-        switch(received_key)
+        switch (state)
         {
-        case '1':
-          strcat(accounts[useraccount].accountnr,"1");
-          break;
-        case '2':
-          strcat(accounts[useraccount].accountnr,"2");
-          break;
-        case '3':
-          strcat(accounts[useraccount].accountnr,"3");
-          break;
-        case '4':
-          strcat(accounts[useraccount].accountnr,"4");
-          break;
-        case '5':
-          strcat(accounts[useraccount].accountnr,"5");
-          break;
-        case '6':
-          strcat(accounts[useraccount].accountnr,"6");
-          break;
-        case '7':
-          strcat(accounts[useraccount].accountnr,"7");
-          break;
-        case '8':
-          strcat(accounts[useraccount].accountnr,"8");
-          break;
-        case '9':
-          strcat(accounts[useraccount].accountnr,"9");
-          break;
-        default:
+        case INPUTACCOUNTNR:
+          switch (received_key)
+          {
+          case '1':
+            strcat(accounts[useraccount].accountnr, "1");
             break;
+          case '2':
+            strcat(accounts[useraccount].accountnr, "2");
+            break;
+          case '3':
+            strcat(accounts[useraccount].accountnr, "3");
+            break;
+          case '4':
+            strcat(accounts[useraccount].accountnr, "4");
+            break;
+          case '5':
+            strcat(accounts[useraccount].accountnr, "5");
+            break;
+          case '6':
+            strcat(accounts[useraccount].accountnr, "6");
+            break;
+          case '7':
+            strcat(accounts[useraccount].accountnr, "7");
+            break;
+          case '8':
+            strcat(accounts[useraccount].accountnr, "8");
+            break;
+          case '9':
+            strcat(accounts[useraccount].accountnr, "9");
+            break;
+          default:
+            break;
+          }
+        /*
+        case INPUTPINNR:
+          if (INPUTPOS > 3)
+          {
+            state = PRODUCT;
+          }
+          */
+          /*
+          switch (received_key)
+          {
+          case '1':
+            strcat(accounts[useraccount].pin, "1");
+            break;
+          case '2':
+            strcat(accounts[useraccount].pin, "2");
+            break;
+          case '3':
+            strcat(accounts[useraccount].pin, "3");
+            break;
+          case '4':
+            strcat(accounts[useraccount].pin, "4");
+            break;
+          case '5':
+            strcat(accounts[useraccount].pin, "5");
+            break;
+          case '6':
+            strcat(accounts[useraccount].pin, "6");
+            break;
+          case '7':
+            strcat(accounts[useraccount].pin, "7");
+            break;
+          case '8':
+            strcat(accounts[useraccount].pin, "8");
+            break;
+          case '9':
+            strcat(accounts[useraccount].pin, "9");
+            break;
+          default:
+            break;
+          }
+          */
+        /*
+        case PRODUCT:
+          switch (received_key)
+          {
+          case '1':
+            productchoice = 1;
+
+            char out[] = "92 valgt";
+            for (INT8U e = 0; e < 8; e++)
+            {
+              lcd_writedata_position((e + 2), out[e]);
+            }
+            state = DONE;
+            break;
+          case '2':
+            productchoice = 2;
+            state = DONE;
+            break;
+          case '3':
+            productchoice = 3;
+            state = DONE;
+            break;
+          default:
+            break;
+          case DONE:
+            // Slip semafor!
+            break;
+          }
+        */
         }
 
-        INT8U tolcd;
-        for (INT8U i = 0; i < sizeof(accounts[0].accountnr); i++)
+        for (INT8U i = 0; i < sizeof(accounts[useraccount].accountnr); i++)
         {
-        tolcd = accounts[0].accountnr[i];
-        lcd_writedata_position((2+i), tolcd);
+          tolcd = accounts[useraccount].accountnr[i];
+          lcd_writedata_position((i+1), tolcd);
         }
-
       }
     }
   }

@@ -216,103 +216,198 @@ void inputtask(void *pvParameters)
 {
   // State machine i stedet?
 
-  static INT8U INPUTPOS = 0;
+  static INT8U countaccountnr = 6;
+  static INT8U countpinnr = 3;
   static useraccount = 0;
+  static firsttime = 1;
   INT8U tolcd;
   INT8U received_key;
 
   static enum states
   {
-    NOUSE1, NOUSE2, NOUSE3, NOUSE4, INPUTACCOUNTNR, INPUTPINNR, PRODUCT, DONE
+    INPUTACCOUNTNR, INPUTPINNR, PRODUCT, DONE
   } state = INPUTACCOUNTNR;
 
   while (1)
   {
+    if( firsttime == 1 )
+    {
+    char out[] = "AccNr: ";
+    for (INT8U e = 0; e < sizeof(out); e++)
+    {
+      lcd_writedata_position((e), out[e]);
+    }
+    }
+
     // Keyboard press received?
     if (keyQueue != 0)
     {
+      firsttime = 0;
       // Receive a message on the created queue.  Block for 10 ticks if a
       // message is not immediately available.
       if (xQueueReceive(keyQueue, &(received_key), (portTickType ) 10))
       {
-        lcd_writedata_position(13, received_key);
 
-        switch (state)
+        if( state == INPUTACCOUNTNR )
         {
-        case INPUTACCOUNTNR:
+          if( countaccountnr == 0 )
+          {
+            state = INPUTPINNR;
+          }
           switch (received_key)
           {
           case '1':
             strcat(accounts[useraccount].accountnr, "1");
+            countaccountnr--;
             break;
           case '2':
             strcat(accounts[useraccount].accountnr, "2");
+            countaccountnr--;
             break;
           case '3':
             strcat(accounts[useraccount].accountnr, "3");
+            countaccountnr--;
             break;
           case '4':
             strcat(accounts[useraccount].accountnr, "4");
+            countaccountnr--;
             break;
           case '5':
             strcat(accounts[useraccount].accountnr, "5");
+            countaccountnr--;
             break;
           case '6':
             strcat(accounts[useraccount].accountnr, "6");
+            countaccountnr--;
             break;
           case '7':
             strcat(accounts[useraccount].accountnr, "7");
+            countaccountnr--;
             break;
           case '8':
             strcat(accounts[useraccount].accountnr, "8");
+            countaccountnr--;
             break;
           case '9':
             strcat(accounts[useraccount].accountnr, "9");
+            countaccountnr--;
             break;
           default:
             break;
           }
-        /*
-        case INPUTPINNR:
-          if (INPUTPOS > 3)
+
+          char out[] = "AccNr: ";
+          for (INT8U e = 0; e < sizeof(out); e++)
+          {
+            lcd_writedata_position((e), out[e]);
+          }
+          for (INT8U i = 0; i < (sizeof(accounts[useraccount].accountnr)-1); i++)
+          {
+            tolcd = accounts[useraccount].accountnr[i];
+            lcd_writedata_position((i+7), tolcd);
+          }
+        }
+
+        else if( state == INPUTPINNR )
+        {
+          if( countpinnr == 0 )
           {
             state = PRODUCT;
           }
-          */
-          /*
+
           switch (received_key)
           {
           case '1':
             strcat(accounts[useraccount].pin, "1");
+            countpinnr--;
             break;
           case '2':
             strcat(accounts[useraccount].pin, "2");
+            countpinnr--;
             break;
           case '3':
             strcat(accounts[useraccount].pin, "3");
+            countpinnr--;
             break;
           case '4':
             strcat(accounts[useraccount].pin, "4");
+            countpinnr--;
             break;
           case '5':
             strcat(accounts[useraccount].pin, "5");
+            countpinnr--;
             break;
           case '6':
             strcat(accounts[useraccount].pin, "6");
+            countpinnr--;
             break;
           case '7':
             strcat(accounts[useraccount].pin, "7");
+            countpinnr--;
             break;
           case '8':
             strcat(accounts[useraccount].pin, "8");
+            countpinnr--;
             break;
           case '9':
             strcat(accounts[useraccount].pin, "9");
+            countpinnr--;
             break;
           default:
             break;
           }
-          */
+          char out[] = "PIN: ";
+          for (INT8U e = 0; e < sizeof(out); e++)
+          {
+            lcd_writedata_position((e), out[e]);
+          }
+          for (INT8U i = 0; i < (sizeof(accounts[useraccount].pin)-1); i++)
+          {
+            tolcd = accounts[useraccount].pin[i];
+            lcd_writedata_position((i+5), tolcd);
+          }
+          char out2[] = "         ";
+          for (INT8U e = 0; e < sizeof(out2); e++)
+          {
+            lcd_writedata_position((e+9), out2[e]);
+          }
+        }
+
+        else if( state == PRODUCT )
+        {
+          char out[] = "1: 92, 2: 95      ";
+          for (INT8U e = 0; e < sizeof(out); e++)
+          {
+            lcd_writedata_position(e, out[e]);
+          }
+          switch (received_key)
+          {
+          case '1':
+            productchoice = 1;
+
+            char out[] = "92 valgt     ";
+            for (INT8U e = 0; e < sizeof(out); e++)
+            {
+              lcd_writedata_position((e + 2), out[e]);
+            }
+            //state = DONE;
+            break;
+          case '2':
+            productchoice = 2;
+            state = DONE;
+            break;
+          case '3':
+            productchoice = 3;
+            state = DONE;
+            break;
+          default:
+            break;
+          case DONE:
+            // Slip semafor!
+            break;
+          }
+        }
+
         /*
         case PRODUCT:
           switch (received_key)
@@ -342,13 +437,6 @@ void inputtask(void *pvParameters)
             break;
           }
         */
-        }
-
-        for (INT8U i = 0; i < sizeof(accounts[useraccount].accountnr); i++)
-        {
-          tolcd = accounts[useraccount].accountnr[i];
-          lcd_writedata_position((i+1), tolcd);
-        }
       }
     }
   }
@@ -394,17 +482,17 @@ int main( void )
   return_value &= xTaskCreate(emp_board_alive, "EMP Board Alive",
                               USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL);
 
-  return_value &= xTaskCreate(timer, "Time", USERTASK_STACK_SIZE, NULL,
-                              MED_PRIO, NULL);
+  //return_value &= xTaskCreate(timer, "Time", USERTASK_STACK_SIZE, NULL,
+  //                            MED_PRIO, NULL);
 
-  return_value &= xTaskCreate(UART, "UART", USERTASK_STACK_SIZE, NULL, MED_PRIO,
-                              NULL);
+  //return_value &= xTaskCreate(UART, "UART", USERTASK_STACK_SIZE, NULL, MED_PRIO,
+  //                            NULL);
 
-  return_value &= xTaskCreate(queue_producer, "Queue eksempel1", USERTASK_STACK_SIZE, NULL, MED_PRIO,
-                              NULL);
+  //return_value &= xTaskCreate(queue_producer, "Queue eksempel1", USERTASK_STACK_SIZE, NULL, MED_PRIO,
+  //                            NULL);
 
-  return_value &= xTaskCreate(queue_consumer, "Queue eksempel2", USERTASK_STACK_SIZE, NULL, MED_PRIO,
-                              NULL);
+  //return_value &= xTaskCreate(queue_consumer, "Queue eksempel2", USERTASK_STACK_SIZE, NULL, MED_PRIO,
+  //                            NULL);
 
 //  return_value &= xTaskCreate(debug_testfunc, "Debugging", USERTASK_STACK_SIZE, NULL, MED_PRIO,
 //                              NULL);

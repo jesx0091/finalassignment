@@ -284,6 +284,19 @@ void inputtask(void *pvParameters)
   INT8U tolcd;
   INT8U received_key;
 
+  static char out92[] = "92 valgt        ";
+
+  static char out95[] = "95 valgt        ";
+
+  static char outwelcome[] = "Input $";
+
+  static char outwelcome1[] = "or acc";
+
+  static char outwelcome2[] = "Nr";
+
+  static char clearLCD[] = "                ";
+
+
   static enum states
   {
     INIT, INPUTCASH, INPUTACCOUNTNR, INPUTPINNR, PRODUCT, DONE

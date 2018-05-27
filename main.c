@@ -179,12 +179,12 @@ static void queue_consumer(void *pvParameters)
 {
   while (1)
   {
-    INT16U received_var;
-    if (xQueue != 0)
+    struct _msg received_msg;
+    if (Queue != 0)
     {
       // Receive a message on the created queue.  Block for 10 ticks if a
       // message is not immediately available.
-      if (xQueueReceive(xQueue, &(received_var), (portTickType ) 10))
+      if (xQueueReceive(Queue, &(received_msg), (portTickType ) 10))
       {
         // pcRxedMessage now points to the struct AMessage variable posted
         // by vATask.

@@ -216,10 +216,11 @@ void inputtask(void *pvParameters)
 {
   // State machine i stedet?
 
-  static INT8U countaccountnr = 6;
+  static INT8U countaccountnr = 5;
   static INT8U countpinnr = 3;
-  static useraccount = 0;
-  static firsttime = 1;
+  static INT8U useraccount = 0;
+  static INT8U firsttime = 1;
+  static INT8U go_on = 0;
   INT8U tolcd;
   INT8U received_key;
 
@@ -252,7 +253,7 @@ void inputtask(void *pvParameters)
         {
           if( countaccountnr == 0 )
           {
-            state = INPUTPINNR;
+            go_on = 1;
           }
           switch (received_key)
           {
@@ -295,24 +296,38 @@ void inputtask(void *pvParameters)
           default:
             break;
           }
-
+          if( go_on == 1 )
+          {
+            //vTaskDelay(150/portTICK_RATE_MS);
+            char out[] = ".PIN:            ";
+            for (INT8U e = 0; e < sizeof(out); e++)
+            {
+              lcd_writedata_position(e, out[e]);
+            }
+            state = INPUTPINNR;
+            go_on = 0;
+          }
+          else
+          {
           char out[] = "AccNr: ";
           for (INT8U e = 0; e < sizeof(out); e++)
           {
-            lcd_writedata_position((e), out[e]);
+            lcd_writedata_position(e, out[e]);
           }
           for (INT8U i = 0; i < (sizeof(accounts[useraccount].accountnr)-1); i++)
           {
             tolcd = accounts[useraccount].accountnr[i];
             lcd_writedata_position((i+7), tolcd);
           }
+          }
+
         }
 
         else if( state == INPUTPINNR )
         {
           if( countpinnr == 0 )
           {
-            state = PRODUCT;
+            go_on = 1;
           }
 
           switch (received_key)
@@ -356,7 +371,17 @@ void inputtask(void *pvParameters)
           default:
             break;
           }
-          char out[] = "PIN: ";
+          if( go_on == 1 )
+          {
+            char out[] = ".1: 92, 2: 95      ";
+            for (INT8U e = 0; e < sizeof(out); e++)
+            {
+              lcd_writedata_position(e, out[e]);
+            }
+            state = PRODUCT;
+          }
+          else{
+          char out[] = ".PIN: ";
           for (INT8U e = 0; e < sizeof(out); e++)
           {
             lcd_writedata_position((e), out[e]);
@@ -367,15 +392,16 @@ void inputtask(void *pvParameters)
             lcd_writedata_position((i+5), tolcd);
           }
           char out2[] = "         ";
-          for (INT8U e = 0; e < sizeof(out2); e++)
+          for (INT8U d = 0; d < sizeof(out2); d++)
           {
-            lcd_writedata_position((e+9), out2[e]);
+            lcd_writedata_position((d+9), out2[d]);
+          }
           }
         }
 
         else if( state == PRODUCT )
         {
-          char out[] = "1: 92, 2: 95      ";
+          char out[] = ".1: 92, 2: 95      ";
           for (INT8U e = 0; e < sizeof(out); e++)
           {
             lcd_writedata_position(e, out[e]);
@@ -385,15 +411,24 @@ void inputtask(void *pvParameters)
           case '1':
             productchoice = 1;
 
-            char out[] = "92 valgt     ";
+            char out[] = ".92 valgt        ";
             for (INT8U e = 0; e < sizeof(out); e++)
             {
-              lcd_writedata_position((e + 2), out[e]);
+              lcd_writedata_position(e, out[e]);
             }
-            //state = DONE;
+            vTaskDelay(1000/portTICK_RATE_MS);
+            state = DONE;
             break;
           case '2':
             productchoice = 2;
+            /*
+            char out[] = ".95 valgt        ";
+            for (INT8U e = 0; e < sizeof(out); e++)
+            {
+              lcd_writedata_position(e, out[e]);
+            }
+            vTaskDelay(1000/portTICK_RATE_MS);
+            */
             state = DONE;
             break;
           case '3':

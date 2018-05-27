@@ -213,12 +213,11 @@ static void queue_consumer(void *pvParameters)
             lcd_writedata_position(41, 'H');
             break;
           case RELEASED:
-            lcd_writedata_position(41, 'R');
+            lcd_writedata_position(42, 'R');
             break;
-          case D_CLICK:
-            lcd_writedata_position(41, 'D');
           }
-        }else if (received_msg.function == DIGI_SW)
+        }
+        else if (received_msg.function == DIGI_SW)
         {
           switch (received_msg.event)
           {
@@ -229,19 +228,31 @@ static void queue_consumer(void *pvParameters)
             lcd_writedata_position(43, 'H');
             break;
           case RELEASED:
-            lcd_writedata_position(43, 'R');
+            lcd_writedata_position(44, 'R');
             break;
-          case D_CLICK:
-            lcd_writedata_position(43, 'D');
           }
         }
+        else if (received_msg.function == SW2)
+        {
+          switch (received_msg.event)
+          {
+          case CLICK:
+            lcd_writedata_position(45, 'C');
+            break;
+          case HOLD:
+            lcd_writedata_position(45, 'H');
+            break;
+          case RELEASED:
+            lcd_writedata_position(46, 'R');
+            break;
+          }
 
+        }
       }
+      vTaskDelay(300);      // læser for langsomt, bare for eksemplets skyld.
     }
-    vTaskDelay(300);      // læser for langsomt, bare for eksemplets skyld.
   }
 }
-
 static void debug_testfunc(void *pvParameters)
 /*****************************************************************************
  *   Input    :  -
@@ -547,18 +558,24 @@ int main(void)
   return_value &= xTaskCreate(emp_board_alive, "EMP Board Alive",
                               USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL);
 
-  return_value &= xTaskCreate(sw1_task, "sw 1 task",
-                               USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL);
+  return_value &= xTaskCreate(sw1_task, "sw 1 task", USERTASK_STACK_SIZE, NULL,
+                              MED_PRIO, NULL);
+
+  return_value &= xTaskCreate(sw2_task, "sw 2 task", USERTASK_STACK_SIZE, NULL,
+                              MED_PRIO, NULL);
   //return_value &= xTaskCreate(timer, "Time", USERTASK_STACK_SIZE, NULL,
   //                            MED_PRIO, NULL);
 
   //return_value &= xTaskCreate(UART, "UART", USERTASK_STACK_SIZE, NULL, MED_PRIO,
   //                            NULL);
 
-  return_value &= xTaskCreate(digi_p2_task, "digi_p2_task", USERTASK_STACK_SIZE, NULL, MED_PRIO,
-                              NULL);
+  return_value &= xTaskCreate(digi_p2_task, "digi_p2_task", USERTASK_STACK_SIZE,
+                              NULL, MED_PRIO, NULL);
   //return_value &= xTaskCreate(queue_producer, "Queue eksempel1", USERTASK_STACK_SIZE, NULL, MED_PRIO,
   //                            NULL);
+
+  return_value &= xTaskCreate(hardware_ticks, "hardware_ticks",
+                              USERTASK_STACK_SIZE, NULL, HIGH_PRIO, NULL);
 
   return_value &= xTaskCreate(queue_consumer, "Queue eksempel2",
                               USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL);

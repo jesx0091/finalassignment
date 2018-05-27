@@ -27,7 +27,7 @@
 #include "task.h"
 #include "queue.h"
 #include "hardware.h"
-#include "systick.h"
+
 extern xQueueHandle Queue;
 
 /*****************************    Defines    *******************************/
@@ -135,7 +135,12 @@ void digi_p2_task(void *pvParameters)
  *   Header description
  ******************************************************************************/
 {
-  uint32_t timer = ticks();
+  if (Queue == NULL)
+   {
+   // Queue was not created and must not be used.
+   Queue = xQueueCreate(10, sizeof(struct _msg));
+   }
+  uint32_t timer = get_hdw_ticks();
   uint32_t last_timer = 0;
   uint8_t event = 0;
 
@@ -143,87 +148,61 @@ void digi_p2_task(void *pvParameters)
 
   static enum states
   {
-    IDLE, FIRST_PRESS, FIRST_RELEASE, SECOND_PRESS, LONG_PRESS
+    IDLE, FIRST_PRESS, LONG_PRESS
   } state = IDLE;
 
   while (1)
   {
-    timer = ticks();
+    timer = get_hdw_ticks();
     event = 0;
 
     switch (state)
     {
-      case IDLE:
-        if (is_digi_p2_pressed())       // if button pushed
+    case IDLE:
+      if (is_digi_p2_pressed())       // if button pushed
+      {
+        state = FIRST_PRESS;
+        last_timer = timer;
+      }
+      break;
+    case FIRST_PRESS:
+      if (timer >= (last_timer + 200))          // if timeout
+      {
+        state = LONG_PRESS;
+        event = HOLD;
+      }
+      else
+      {
+        if (!is_digi_p2_pressed())    // if button released
         {
-          state = FIRST_PRESS;
-          last_timer = timer;
-        }
-        break;
-      case FIRST_PRESS:
-        if (timer >= (last_timer + 2000))          // if timeout
-        {
-          state = LONG_PRESS;
-          event = HOLD;
-        }
-        else
-        {
-          if (!is_digi_p2_pressed())    // if button released
-          {
-            state = FIRST_RELEASE;
-            last_timer = timer;
-          }
-        }
-        break;
-      case FIRST_RELEASE:
-        if (timer >= (last_timer + 100))          // if timeout
-        {
+          //state = FIRST_RELEASE;
           state = IDLE;
+          //last_timer = timer;
           event = CLICK;
         }
-        else
-        {
-          if (is_digi_p2_pressed())     // if button pressed
-          {
-            state = SECOND_PRESS;
-            last_timer = timer;
-          }
-        }
-        break;
-      case SECOND_PRESS:
-        if (timer >= (last_timer + 2000))          // if timeout
-        {
-          state = LONG_PRESS;
-          event = HOLD;
-        }
-        else
-        {
-          if (!is_digi_p2_pressed())                    // if button released
-          {
-            state = IDLE;
-            event = D_CLICK;
-          }
-        }
-        break;
-      case LONG_PRESS:
-        if (!is_digi_p2_pressed())                 // if button released
-          state = IDLE;
-        break;
-      default:
-        break;
+      }
+      break;
+
+    case LONG_PRESS:
+      if (!is_digi_p2_pressed())                 // if button released
+      {
+        event = RELEASED;
+        state = IDLE;
+      }
+      break;
+    default:
+      break;
     }
 
     if (event)
     {
 
-        msg.ch = 0;
-        msg.event = event;
-        msg.function = DIGI_SW;
-        xQueueSendToBack(Queue, &msg, 0);
-
+      msg.ch = 0;
+      msg.event = event;
+      msg.function = DIGI_SW;
+      xQueueSendToBack(Queue, &msg, 0);
 
     }
-
     vTaskDelay(10);
   }
 }

@@ -27,7 +27,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
-#include "systick.h"
+
 /*****************************    Defines    *******************************/
 #define TIM_2_SEC           2000
 #define TIM_100_MSEC         100
@@ -38,7 +38,7 @@ xQueueHandle Queue;
 /*****************************   Constants   *******************************/
 
 /*****************************   Variables   *******************************/
-
+volatile INT32U hdw_ticks = 0;
 /*****************************   Functions   *******************************/
 
 void sendmsgtoqueue(struct _msg msg)
@@ -69,110 +69,32 @@ INT8U is_sw2_pressed(void)
   return ((GPIO_PORTF_DATA_R & 0x01) ? 0 : 1);
 }
 
-//void sw1_task(void *pvParameters)
-/*****************************************************************************
- *   Header description
- ******************************************************************************/
-/*{
- if (Queue == NULL)
- {
- / Queue was not created and must not be used.
- Queue = xQueueCreate(10, sizeof(struct _msg));
- }
 
- static enum sw1_states
- {
- IDLE, FIRST_PRESS, FIRST_RELEASE, SECOND_PRESS, LONG_PRESS
- } button_state = IDLE;
- static INT16U button_timer;
- //enum sw1_events button_event = BE_NONE;
- struct _msg msg;
- uint8_t event = 0;
- while (1)
- {
- event = 0;
- switch (button_state)
- {
- case IDLE:
- if (is_sw1_pressed())       // if button pushed
- {
- button_state = FIRST_PRESS;
- button_timer = TIM_2_SEC;       // start timer = 2 sek;
- }
- break;
- case FIRST_PRESS:
- if (!--button_timer)          // if timeout
- {
- button_state = LONG_PRESS;
- //button_event = BE_LONG;
- event = HOLD;
+void hardware_ticks(void *pvParameters)
+{
 
- }
- else
- {
- if (!is_sw1_pressed())    // if button released
- {
- button_state = FIRST_RELEASE;
- button_timer = TIM_100_MSEC;  // start timer = 100 milli sek;
- }
- }
- break;
- case FIRST_RELEASE:
- if (!--button_timer)          // if timeout
- {
- button_state = IDLE;
- //button_event = BE_SINGLE;
- event = CLICK;
- }
- else
- {
- if (is_sw1_pressed())     // if button pressed
- {
- button_state = SECOND_PRESS;
- button_timer = TIM_2_SEC;     // start timer = 2 sek;
- }
- }
- break;
- case SECOND_PRESS:
- if (!--button_timer)          // if timeout
- {
- button_state = LONG_PRESS;
- //button_event = BE_LONG;
- event = HOLD;
- }
- else
- {
- if (!is_sw1_pressed())                    // if button released
- {
- button_state = IDLE;
- //button_event = BE_DOUBLE;
- event = D_CLICK;
- }
- }
- break;
- case LONG_PRESS:
- if (!is_sw1_pressed())                 // if button released
- button_state = IDLE;
- //event = RELEASED;
- break;
- default:
- break;
- }
- if (event)
- {
- msg.ch = 0;
- msg.event = event;
- msg.function = SW1;
- xQueueSendToBack(Queue, &msg, 0);
- }
- }
- }*/
+  while (1)
+  {
+    vTaskDelay(10 / portTICK_RATE_MS);
+    hdw_ticks ++;
+
+  }
+}
+INT32U get_hdw_ticks(void)
+{
+  return(hdw_ticks);
+}
 void sw1_task(void *pvParameters)
 /*****************************************************************************
  *   Header description
  ******************************************************************************/
 {
-  uint32_t timer = ticks();
+  if (Queue == NULL)
+   {
+   // Queue was not created and must not be used.
+   Queue = xQueueCreate(10, sizeof(struct _msg));
+   }
+  uint32_t timer = get_hdw_ticks();
   uint32_t last_timer = 0;
   uint8_t event = 0;
 
@@ -180,12 +102,12 @@ void sw1_task(void *pvParameters)
 
   static enum states
   {
-    IDLE, FIRST_PRESS, FIRST_RELEASE, SECOND_PRESS, LONG_PRESS
+    IDLE, FIRST_PRESS, LONG_PRESS
   } state = IDLE;
 
   while (1)
   {
-    timer = ticks();
+    timer = get_hdw_ticks();
     event = 0;
 
     switch (state)
@@ -198,7 +120,7 @@ void sw1_task(void *pvParameters)
       }
       break;
     case FIRST_PRESS:
-      if (timer >= (last_timer + 2000))          // if timeout
+      if (timer >= (last_timer + 200))          // if timeout
       {
         state = LONG_PRESS;
         event = HOLD;
@@ -207,44 +129,20 @@ void sw1_task(void *pvParameters)
       {
         if (!is_sw1_pressed())    // if button released
         {
-          state = FIRST_RELEASE;
-          last_timer = timer;
-        }
-      }
-      break;
-    case FIRST_RELEASE:
-      if (timer >= (last_timer + 100))          // if timeout
-      {
-        state = IDLE;
-        event = CLICK;
-      }
-      else
-      {
-        if (is_sw1_pressed())     // if button pressed
-        {
-          state = SECOND_PRESS;
-          last_timer = timer;
-        }
-      }
-      break;
-    case SECOND_PRESS:
-      if (timer >= (last_timer + 2000))          // if timeout
-      {
-        state = LONG_PRESS;
-        event = HOLD;
-      }
-      else
-      {
-        if (!is_sw1_pressed())                    // if button released
-        {
+          //state = FIRST_RELEASE;
           state = IDLE;
-          event = D_CLICK;
+          //last_timer = timer;
+          event = CLICK;
         }
       }
       break;
+
     case LONG_PRESS:
       if (!is_sw1_pressed())                 // if button released
+      {
+        event = RELEASED;
         state = IDLE;
+      }
       break;
     default:
       break;
@@ -262,7 +160,82 @@ void sw1_task(void *pvParameters)
     vTaskDelay(10);
   }
 }
+void sw2_task(void *pvParameters)
+/*****************************************************************************
+ *   Header description
+ ******************************************************************************/
+{
+  if (Queue == NULL)
+   {
+   // Queue was not created and must not be used.
+   Queue = xQueueCreate(10, sizeof(struct _msg));
+   }
+  uint32_t timer = get_hdw_ticks();
+  uint32_t last_timer = 0;
+  uint8_t event = 0;
 
+  struct _msg msg;
+
+  static enum states
+  {
+    IDLE, FIRST_PRESS, LONG_PRESS
+  } state = IDLE;
+
+  while (1)
+  {
+    timer = get_hdw_ticks();
+    event = 0;
+
+    switch (state)
+    {
+    case IDLE:
+      if (is_sw2_pressed())       // if button pushed
+      {
+        state = FIRST_PRESS;
+        last_timer = timer;
+      }
+      break;
+    case FIRST_PRESS:
+      if (timer >= (last_timer + 200))          // if timeout
+      {
+        state = LONG_PRESS;
+        event = HOLD;
+      }
+      else
+      {
+        if (!is_sw2_pressed())    // if button released
+        {
+          //state = FIRST_RELEASE;
+          state = IDLE;
+          //last_timer = timer;
+          event = CLICK;
+        }
+      }
+      break;
+
+    case LONG_PRESS:
+      if (!is_sw2_pressed())                 // if button released
+      {
+        event = RELEASED;
+        state = IDLE;
+      }
+      break;
+    default:
+      break;
+    }
+
+    if (event)
+    {
+
+      msg.ch = 0;
+      msg.event = event;
+      msg.function = SW2;
+      xQueueSendToBack(Queue, &msg, 0);
+
+    }
+    vTaskDelay(10);
+  }
+}
 void emp_set_led(INT8U led)
 /*****************************************************************************
  *   Header description

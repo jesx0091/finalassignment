@@ -57,10 +57,12 @@ typedef struct _msg {
   uint8_t   function;
   uint8_t   event;
 } _msg_t;
+
 /*****************************   Constants   *******************************/
 
 /*************************  Function interfaces ****************************/
-void sendmsgtoqueue(_msg_t msg);
+
+void hardware_ticks(void *pvParameters);
 
 INT8U is_sw1_pressed(void);
 /*****************************************************************************
@@ -110,6 +112,8 @@ void sw1_task(void *pvParameters);
  *   Output   : sw1_event enum (header file)
  *   Function : Task to handel sw1 logic
  ******************************************************************************/
+
+void sw2_task(void *pvParameters);
 
 /****************************** End Of Module *******************************/
 #endif /* DEBUG_H_ */

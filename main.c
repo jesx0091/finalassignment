@@ -35,7 +35,7 @@
 
 /*****************************    Defines    *******************************/
 xSemaphoreHandle xSemaphore;
-
+extern xQueueHandle Queue;
 xQueueHandle xQueue;
 extern xQueueHandle keyQueue;    // INT8U med maks 8 elementer.
 
@@ -532,8 +532,8 @@ int main( void )
   //return_value &= xTaskCreate(queue_producer, "Queue eksempel1", USERTASK_STACK_SIZE, NULL, MED_PRIO,
   //                            NULL);
 
-  //return_value &= xTaskCreate(queue_consumer, "Queue eksempel2", USERTASK_STACK_SIZE, NULL, MED_PRIO,
-  //                            NULL);
+  return_value &= xTaskCreate(queue_consumer, "Queue eksempel2", USERTASK_STACK_SIZE, NULL, MED_PRIO,
+                              NULL);
 
 //  return_value &= xTaskCreate(debug_testfunc, "Debugging", USERTASK_STACK_SIZE, NULL, MED_PRIO,
 //                              NULL);

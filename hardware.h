@@ -104,7 +104,7 @@ void hardware_init(void);
  *   Function : Task to blink the EMP status led in 200ms interval
  ******************************************************************************/
 
-void sw1_task(void);
+void sw1_task(void *pvParameters);
 /*****************************************************************************
  *   Input    : -
  *   Output   : sw1_event enum (header file)

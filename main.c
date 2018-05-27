@@ -322,7 +322,7 @@ void inputtask(void *pvParameters)
       {
         state = INPUTACCOUNTNR;
       }
-      vTaskDelay(200);
+      vTaskDelay(250);
       struct _msg received_msg;
       if (Queue != 0)
       {
@@ -331,7 +331,7 @@ void inputtask(void *pvParameters)
         if (xQueueReceive(Queue, &(received_msg), (portTickType ) 10))
         {
           // pcRxedMessage now points to the struct AMessage variable posted
-          // by vATask.
+          // by vATask.Auto stash before merge of "master" and "origin/master"
           if (received_msg.function == DIGI_R)
           {
             switch (received_msg.event)
@@ -364,9 +364,11 @@ void inputtask(void *pvParameters)
             switch (received_msg.event)
             {
             case DIGI_CCW:
+              cash = cash + 100;
               lcd_writedata_position(42, 'C');
               break;
             case DIGI_CW:
+              cash = cash + 50;
               lcd_writedata_position(42, 'C');
               break;
             }
@@ -376,6 +378,7 @@ void inputtask(void *pvParameters)
             switch (received_msg.event)
             {
             case CLICK:
+              lcd_writedata_position(43, 'C');
 //!!              // productchoice
               break;
             }
@@ -655,6 +658,13 @@ int main(void)
 
   //return_value &= xTaskCreate(UART, "UART", USERTASK_STACK_SIZE, NULL, MED_PRIO,
   //                            NULL);
+
+  //return_value &= xTaskCreate(fueling_task, "fueling_task", USERTASK_STACK_SIZE, NULL, MED_PRIO,
+  //                            NULL);
+
+  //return_value &= xTaskCreate(flowmeter, "flowmeter", USERTASK_STACK_SIZE, NULL, HIGH_PRIO,
+  //                              NULL);
+
 
   return_value &= xTaskCreate(digi_p2_task, "digi_p2_task", USERTASK_STACK_SIZE,
                               NULL, MED_PRIO, NULL);

@@ -213,11 +213,11 @@ void lcd_setcursor(INT8U CURSORPOSITION)
 {
   writeinstruction(0x02);               // cursor in top left corner
 
-  if( CURSORPOSITION <= LCD_FIRSTLINE )
-  {
+  //if( CURSORPOSITION <= LCD_FIRSTLINE )
+  //{
     CURSORPOSITION += LCD_SETCURSOR;    // Move cursor to position on first line
     writeinstruction(CURSORPOSITION);
-  }
+  //}
   /*
   if( CURSORPOSITION >= LCD_SECONDLINE )    // Adds the offset
   {

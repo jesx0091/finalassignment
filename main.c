@@ -200,6 +200,9 @@ static void queue_consumer(void *pvParameters)
             lcd_writedata_position(15, 'H');
             break;
           }
+        } else if(received_msg.function == SW1)
+        {
+          // nada for nu
         }
 
       }

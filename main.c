@@ -32,6 +32,7 @@
 #include "uart0.h"
 #include "semphr.h"
 #include "queue.h"
+#include "drehimpulsgeber.h"
 
 /*****************************    Defines    *******************************/
 xSemaphoreHandle xSemaphore;
@@ -206,16 +207,32 @@ static void queue_consumer(void *pvParameters)
           switch (received_msg.event)
           {
           case CLICK:
-            lcd_writedata_position(14, 'C');
+            lcd_writedata_position(41, 'C');
             break;
           case HOLD:
-            lcd_writedata_position(14, 'H');
+            lcd_writedata_position(41, 'H');
             break;
           case RELEASED:
-            lcd_writedata_position(14, 'R');
+            lcd_writedata_position(41, 'R');
             break;
           case D_CLICK:
-            lcd_writedata_position(14, 'D');
+            lcd_writedata_position(41, 'D');
+          }
+        }else if (received_msg.function == DIGI_SW)
+        {
+          switch (received_msg.event)
+          {
+          case CLICK:
+            lcd_writedata_position(43, 'C');
+            break;
+          case HOLD:
+            lcd_writedata_position(43, 'H');
+            break;
+          case RELEASED:
+            lcd_writedata_position(43, 'R');
+            break;
+          case D_CLICK:
+            lcd_writedata_position(43, 'D');
           }
         }
 
@@ -538,6 +555,8 @@ int main(void)
   //return_value &= xTaskCreate(UART, "UART", USERTASK_STACK_SIZE, NULL, MED_PRIO,
   //                            NULL);
 
+  return_value &= xTaskCreate(digi_p2_task, "digi_p2_task", USERTASK_STACK_SIZE, NULL, MED_PRIO,
+                              NULL);
   //return_value &= xTaskCreate(queue_producer, "Queue eksempel1", USERTASK_STACK_SIZE, NULL, MED_PRIO,
   //                            NULL);
 

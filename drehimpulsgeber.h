@@ -56,6 +56,7 @@ void init_digiswitch();
  *   Output   : -
  *   Function : Initialize the digiswitch
  ******************************************************************************/
+void digi_p2_task(void *pvParameters);
 
 
 

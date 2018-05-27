@@ -27,7 +27,7 @@
 #include "task.h"
 #include "queue.h"
 #include "hardware.h"
-
+#include "systick.h"
 extern xQueueHandle Queue;
 
 /*****************************    Defines    *******************************/
@@ -130,7 +130,103 @@ void digiswitch_handler(void)
 
   //portEND_SWITCHING_ISR(xHigherPriorityTaskWoken); // test ???
 }
+void digi_p2_task(void *pvParameters)
+/*****************************************************************************
+ *   Header description
+ ******************************************************************************/
+{
+  uint32_t timer = ticks();
+  uint32_t last_timer = 0;
+  uint8_t event = 0;
 
+  struct _msg msg;
+
+  static enum states
+  {
+    IDLE, FIRST_PRESS, FIRST_RELEASE, SECOND_PRESS, LONG_PRESS
+  } state = IDLE;
+
+  while (1)
+  {
+    timer = ticks();
+    event = 0;
+
+    switch (state)
+    {
+      case IDLE:
+        if (is_digi_p2_pressed())       // if button pushed
+        {
+          state = FIRST_PRESS;
+          last_timer = timer;
+        }
+        break;
+      case FIRST_PRESS:
+        if (timer >= (last_timer + 2000))          // if timeout
+        {
+          state = LONG_PRESS;
+          event = HOLD;
+        }
+        else
+        {
+          if (!is_digi_p2_pressed())    // if button released
+          {
+            state = FIRST_RELEASE;
+            last_timer = timer;
+          }
+        }
+        break;
+      case FIRST_RELEASE:
+        if (timer >= (last_timer + 100))          // if timeout
+        {
+          state = IDLE;
+          event = CLICK;
+        }
+        else
+        {
+          if (is_digi_p2_pressed())     // if button pressed
+          {
+            state = SECOND_PRESS;
+            last_timer = timer;
+          }
+        }
+        break;
+      case SECOND_PRESS:
+        if (timer >= (last_timer + 2000))          // if timeout
+        {
+          state = LONG_PRESS;
+          event = HOLD;
+        }
+        else
+        {
+          if (!is_digi_p2_pressed())                    // if button released
+          {
+            state = IDLE;
+            event = D_CLICK;
+          }
+        }
+        break;
+      case LONG_PRESS:
+        if (!is_digi_p2_pressed())                 // if button released
+          state = IDLE;
+        break;
+      default:
+        break;
+    }
+
+    if (event)
+    {
+
+        msg.ch = 0;
+        msg.event = event;
+        msg.function = DIGI_SW;
+        xQueueSendToBack(Queue, &msg, 0);
+
+
+    }
+
+    vTaskDelay(10);
+  }
+}
 void init_digiswitch()
 /*****************************************************************************
  *   Input    : -

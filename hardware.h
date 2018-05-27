@@ -36,15 +36,32 @@
 #define EMP_LED_GREEN     0b110
 #define EMP_LED_ALL       0b000
 
+#define HOLD              0x01
+#define CLICK             0x02
+#define D_CLICK           0x03
+#define RELEASED          0x04
+#define DIGI_CCW          0x05
+#define DIGI_CW           0x06
+
+#define DIGI_SW           0x01
+#define DIGI_R            0x02
+#define SW1               0x03
+#define SW2               0x04
 /********************** External declaration of Variables ******************/
-enum sw1_events
+/*enum events
 {
   BE_NONE, BE_SINGLE, BE_DOUBLE, BE_LONG
-};
-
+};*/
+typedef struct _msg {
+  uint8_t   ch;
+  uint8_t   function;
+  uint8_t   event;
+} _msg_t;
 /*****************************   Constants   *******************************/
 
 /*************************  Function interfaces ****************************/
+void sendmsgtoqueue(_msg_t msg);
+
 INT8U is_sw1_pressed(void);
 /*****************************************************************************
  *   Input    : -
@@ -87,7 +104,7 @@ void hardware_init(void);
  *   Function : Task to blink the EMP status led in 200ms interval
  ******************************************************************************/
 
-enum sw1_events sw1_task(void);
+void sw1_task(void);
 /*****************************************************************************
  *   Input    : -
  *   Output   : sw1_event enum (header file)

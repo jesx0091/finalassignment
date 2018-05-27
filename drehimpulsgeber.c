@@ -23,7 +23,12 @@
 #include "FreeRTOS.h"
 #include "global.h"
 #include "lcd.h"
+#include "FreeRTOS.h"
 #include "task.h"
+#include "queue.h"
+#include "hardware.h"
+
+extern xQueueHandle Queue;
 
 /*****************************    Defines    *******************************/
 #define     ESC      0x1B
@@ -75,47 +80,16 @@ void digiswitch_handler(void)
  ******************************************************************************/
 {
 
+      if (Queue == NULL)
+      {
+        /* Queue was not created and must not be used. */
+        Queue = xQueueCreate(10, sizeof(struct _msg));
+      }
   /* We have not woken a task at the start of the ISR. */
   //portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE; // test ???
   uint8_t out = 0;
   static uint32_t last_tick_count = 0;
-
-  /*
-   switch (last_int)
-   {
-   case FALING:
-   if (is_digi_A())
-   {
-   if (is_digi_A() == is_digi_B())
-   {
-   out = CCW;
-   lcd_writedata_position(15, 'k');
-   }
-   else
-   {
-   out = CW;
-   lcd_writedata_position(14, 'k');
-   }
-   }
-   last_int = RISING;
-   break;
-   case RISING:
-   if (!(is_digi_A()))
-   {
-   if (is_digi_A() == is_digi_B())
-   {
-   out = CCW;
-   lcd_writedata_position(13, 'k');
-   }
-   else
-   {
-   out = CW;
-   lcd_writedata_position(12, 'k');
-   }
-   }
-   last_int = FALING;
-   break;
-   } */
+  struct _msg msg;
 
 
   if (xTaskGetTickCount() - last_tick_count >= 1)
@@ -131,15 +105,20 @@ void digiswitch_handler(void)
       switch(out)
       {
       case CCW:
-        lcd_writedata_position(11, 'V');
+        //lcd_writedata_position(11, 'V');
+        msg.event = DIGI_CCW;
         break;
       case CW:
-        lcd_writedata_position(11, 'H');
+        //lcd_writedata_position(11, 'H');
+        msg.event = DIGI_CW;
         break;
       default:
         break;
       }
-
+      msg.ch = 0;
+      msg.function = DIGI_R;
+      //sendmsgtoqueue(msg);
+      xQueueSendToBack(Queue, &msg, 0);
     }
     last_tick_count = xTaskGetTickCount();
   }

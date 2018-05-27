@@ -26,7 +26,7 @@
 #include "task.h"
 #include "keyboard.h"
 #include "hardware.h"
-#include "trafficlight.h"
+
 #include "lcd.h"
 #include "semphr.h"
 #include "queue.h"

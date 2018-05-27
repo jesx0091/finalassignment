@@ -35,10 +35,10 @@
 
 /*****************************    Defines    *******************************/
 xSemaphoreHandle xSemaphore;
-
+extern xQueueHandle Queue;
 xQueueHandle xQueue;
 extern xQueueHandle keyQueue;    // INT8U med maks 8 elementer.
-
+extern xQueueHandle Queue;
 typedef struct{
   char accountnr[7];
   char pin[5];
@@ -179,16 +179,29 @@ static void queue_consumer(void *pvParameters)
 {
   while (1)
   {
-    INT16U received_var;
-    if (xQueue != 0)
+    struct _msg received_msg;
+
+    if (Queue != 0)
     {
       // Receive a message on the created queue.  Block for 10 ticks if a
       // message is not immediately available.
-      if (xQueueReceive(xQueue, &(received_var), (portTickType ) 10))
+      if (xQueueReceive(Queue, &(received_msg), (portTickType ) 10))
       {
         // pcRxedMessage now points to the struct AMessage variable posted
         // by vATask.
-        lcd_writedata_position(15, received_var);
+        if(received_msg.function == DIGI_R)
+        {
+          switch(received_msg.event)
+          {
+          case DIGI_CCW:
+            lcd_writedata_position(15, 'V');
+            break;
+          case DIGI_CW:
+            lcd_writedata_position(15, 'H');
+            break;
+          }
+        }
+
       }
     }
     vTaskDelay(300);      // læser for langsomt, bare for eksemplets skyld.
@@ -491,8 +504,8 @@ int main( void )
   //return_value &= xTaskCreate(queue_producer, "Queue eksempel1", USERTASK_STACK_SIZE, NULL, MED_PRIO,
   //                            NULL);
 
-  //return_value &= xTaskCreate(queue_consumer, "Queue eksempel2", USERTASK_STACK_SIZE, NULL, MED_PRIO,
-  //                            NULL);
+  return_value &= xTaskCreate(queue_consumer, "Queue eksempel2", USERTASK_STACK_SIZE, NULL, MED_PRIO,
+                              NULL);
 
 //  return_value &= xTaskCreate(debug_testfunc, "Debugging", USERTASK_STACK_SIZE, NULL, MED_PRIO,
 //                              NULL);

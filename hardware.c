@@ -24,18 +24,34 @@
 #include "lcd.h"
 #include "global.h"
 #include "drehimpulsgeber.h"
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
 /*****************************    Defines    *******************************/
 #define TIM_2_SEC           2000
 #define TIM_100_MSEC         100
 #define TIM_200_MSEC         200
-
+#define     DELAYMULTIPRESS 40  // The delay time before press is considered multipress.
 #define STATUS_LED_TIMER    TIM_200_MSEC
-
+xQueueHandle Queue;
 /*****************************   Constants   *******************************/
 
 /*****************************   Variables   *******************************/
 
 /*****************************   Functions   *******************************/
+
+void sendmsgtoqueue(struct _msg msg)
+{
+  if ( xQueueSendToBack( Queue,
+      ( void * ) &msg,
+      ( portTickType ) 10 ) != pdPASS)
+  {
+    /* Failed to post the message, even after 10 ticks. */
+  }
+  vTaskDelay(DELAYMULTIPRESS);
+  return;
+}
+
 INT8U is_sw1_pressed(void)
 /*****************************************************************************
  *   Header description
@@ -52,7 +68,7 @@ INT8U is_sw2_pressed(void)
   return ((GPIO_PORTF_DATA_R & 0x01) ? 0 : 1);
 }
 
-enum sw1_events sw1_task(void)
+void sw1_task(void)
 /*****************************************************************************
  *   Header description
  ******************************************************************************/
@@ -62,7 +78,9 @@ enum sw1_events sw1_task(void)
     IDLE, FIRST_PRESS, FIRST_RELEASE, SECOND_PRESS, LONG_PRESS
   } button_state = IDLE;
   static INT16U button_timer;
-  enum sw1_events button_event = BE_NONE;
+  //enum sw1_events button_event = BE_NONE;
+  struct _msg msg;
+
 
   switch (button_state)
   {
@@ -77,7 +95,7 @@ enum sw1_events sw1_task(void)
       if (!--button_timer)          // if timeout
       {
         button_state = LONG_PRESS;
-        button_event = BE_LONG;
+        //button_event = BE_LONG;
       }
       else
       {
@@ -92,7 +110,7 @@ enum sw1_events sw1_task(void)
       if (!--button_timer)          // if timeout
       {
         button_state = IDLE;
-        button_event = BE_SINGLE;
+        //button_event = BE_SINGLE;
       }
       else
       {
@@ -107,14 +125,14 @@ enum sw1_events sw1_task(void)
       if (!--button_timer)          // if timeout
       {
         button_state = LONG_PRESS;
-        button_event = BE_LONG;
+        //button_event = BE_LONG;
       }
       else
       {
         if (!is_sw1_pressed())                    // if button released
         {
           button_state = IDLE;
-          button_event = BE_DOUBLE;
+          //button_event = BE_DOUBLE;
         }
       }
       break;
@@ -125,7 +143,6 @@ enum sw1_events sw1_task(void)
     default:
       break;
   }
-  return (button_event);
 }
 
 void emp_set_led(INT8U led)
@@ -235,6 +252,7 @@ void hardware_init()
 
   // Enable global interrupt
   enable_global_int();
+
 
 }
 

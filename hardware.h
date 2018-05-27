@@ -64,6 +64,9 @@ typedef struct _msg {
 
 void hardware_ticks(void *pvParameters);
 
+INT32U get_hdw_ticks(void);
+
+
 INT8U is_sw1_pressed(void);
 /*****************************************************************************
  *   Input    : -

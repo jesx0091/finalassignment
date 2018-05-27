@@ -33,6 +33,7 @@
 #include "semphr.h"
 #include "queue.h"
 #include "drehimpulsgeber.h"
+#include "fueling.h"
 
 /*****************************    Defines    *******************************/
 xSemaphoreHandle xSemaphore;
@@ -52,6 +53,7 @@ account accounts[6];
 
 /*****************************   Variables   *******************************/
 INT8U productchoice;
+INT16U cash;
 
 /*****************************   Functions   *******************************/
 
@@ -568,6 +570,13 @@ int main(void)
 
   //return_value &= xTaskCreate(UART, "UART", USERTASK_STACK_SIZE, NULL, MED_PRIO,
   //                            NULL);
+
+  return_value &= xTaskCreate(fueling_task, "fueling_task", USERTASK_STACK_SIZE, NULL, MED_PRIO,
+                              NULL);
+
+  return_value &= xTaskCreate(flowmeter, "flowmeter", USERTASK_STACK_SIZE, NULL, HIGH_PRIO,
+                                NULL);
+
 
   return_value &= xTaskCreate(digi_p2_task, "digi_p2_task", USERTASK_STACK_SIZE,
                               NULL, MED_PRIO, NULL);

@@ -336,7 +336,7 @@ void inputtask(void *pvParameters)
           if (go_on == 1)
           {
             //vTaskDelay(150/portTICK_RATE_MS);
-            char out[] = ".PIN:            ";
+            char out[] = "PIN:            ";
             for (INT8U e = 0; e < sizeof(out); e++)
             {
               lcd_writedata_position(e, out[e]);
@@ -410,7 +410,7 @@ void inputtask(void *pvParameters)
           }
           if (go_on == 1)
           {
-            char out[] = ".1: 92, 2: 95      ";
+            char out[] = "1: 92, 2: 95      ";
             for (INT8U e = 0; e < sizeof(out); e++)
             {
               lcd_writedata_position(e, out[e]);
@@ -419,7 +419,7 @@ void inputtask(void *pvParameters)
           }
           else
           {
-            char out[] = ".PIN: ";
+            char out[] = "PIN: ";
             for (INT8U e = 0; e < sizeof(out); e++)
             {
               lcd_writedata_position((e), out[e]);
@@ -439,7 +439,7 @@ void inputtask(void *pvParameters)
 
         else if (state == PRODUCT)
         {
-          char out[] = ".1: 92, 2: 95      ";
+          char out[] = "1: 92, 2: 95      ";
           for (INT8U e = 0; e < sizeof(out); e++)
           {
             lcd_writedata_position(e, out[e]);
@@ -449,7 +449,7 @@ void inputtask(void *pvParameters)
           case '1':
             productchoice = 1;
 
-            char out[] = ".92 valgt        ";
+            char out[] = "92 valgt        ";
             for (INT8U e = 0; e < sizeof(out); e++)
             {
               lcd_writedata_position(e, out[e]);
@@ -459,7 +459,7 @@ void inputtask(void *pvParameters)
             break;
           case '2':
             productchoice = 2;
-            char outt[] = ".95 valgt        ";
+            char outt[] = "95 valgt        ";
             for (INT8U e = 0; e < sizeof(outt); e++)
             {
               lcd_writedata_position(e, outt[e]);

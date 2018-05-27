@@ -33,7 +33,6 @@
 #include "semphr.h"
 #include "queue.h"
 #include "drehimpulsgeber.h"
-#include "fueling.h"
 
 /*****************************    Defines    *******************************/
 xSemaphoreHandle xSemaphore;
@@ -284,13 +283,6 @@ void inputtask(void *pvParameters)
   INT8U tolcd;
   INT8U received_key;
 
-  static char out92[] = "92 valgt        ";
-  static char out95[] = "95 valgt        ";
-  static char outwelcome[] = "Input $";
-  static char outwelcome1[] = "or acc";
-  static char outwelcome2[] = "Nr";
-  static char clearLCD[] = "                ";
-
   static enum states
   {
     INIT, INPUTCASH, INPUTACCOUNTNR, INPUTPINNR, PRODUCT, DONE
@@ -306,28 +298,6 @@ void inputtask(void *pvParameters)
       }
 
     }
-
-    if( firsttime == 1)
-    {
-
-      for (INT8U e = 0; e < (sizeof(outwelcome)-1); e++)
-      {
-        lcd_writedata_position(e, outwelcome[e]);
-      }
-
-      for (INT8U e = 0; e < (sizeof(outwelcome1)-1); e++)
-      {
-        lcd_writedata_position(e+8, outwelcome1[e]);
-      }
-
-      for (INT8U e = 0; e < (sizeof(outwelcome2)-1); e++)
-      {
-        lcd_writedata_position((e+14), outwelcome2[e]);
-      }
-
-
-    }
-
     // Keyboard press received?
     if (keyQueue != 0)
     {
@@ -338,7 +308,7 @@ void inputtask(void *pvParameters)
       {
         if (firsttime == 1)
         {
-          char out[] = "AccNr:       ";
+          char out[] = "AccNr: ";
           for (INT8U e = 0; e < sizeof(out); e++)
           {
             lcd_writedata_position((e), out[e]);
@@ -405,7 +375,7 @@ void inputtask(void *pvParameters)
           }
           else
           {
-            char out[] = "AccNr:          ";
+            char out[] = "AccNr: ";
             for (INT8U e = 0; e < sizeof(out); e++)
             {
               lcd_writedata_position(e, out[e]);
@@ -507,20 +477,27 @@ void inputtask(void *pvParameters)
           {
           case '1':
             productchoice = 1;
-            for (INT8U e = 0; e < sizeof(out92); e++)
+
+            char out[] = "92 valgt        ";
+            for (INT8U e = 0; e < sizeof(out); e++)
             {
-              lcd_writedata_position(e, out92[e]);
+              lcd_writedata_position(e, out[e]);
             }
-            //vTaskDelay(1000 / portTICK_RATE_MS);
+            vTaskDelay(1000 / portTICK_RATE_MS);
             state = DONE;
             break;
           case '2':
             productchoice = 2;
-            for (INT8U e = 0; e < sizeof(out95); e++)
+            char outt[] = "95 valgt        ";
+            for (INT8U e = 0; e < sizeof(outt); e++)
             {
-              lcd_writedata_position(e, out95[e]);
+              lcd_writedata_position(e, outt[e]);
             }
-            //vTaskDelay(1000 / portTICK_RATE_MS);
+            vTaskDelay(1000 / portTICK_RATE_MS);
+            state = DONE;
+            break;
+          case '3':
+            productchoice = 3;
             state = DONE;
             break;
           default:
@@ -535,10 +512,6 @@ void inputtask(void *pvParameters)
           useraccount++;
           firsttime = 1;
           go_on = 0;
-          for (INT8U e = 0; e < sizeof(clearLCD); e++)
-          {
-            lcd_writedata_position(e, clearLCD[e]);
-          }
           state = INPUTACCOUNTNR;
         }
       }
@@ -596,13 +569,6 @@ int main(void)
 
   //return_value &= xTaskCreate(UART, "UART", USERTASK_STACK_SIZE, NULL, MED_PRIO,
   //                            NULL);
-
-  return_value &= xTaskCreate(fueling_task, "fueling_task", USERTASK_STACK_SIZE, NULL, MED_PRIO,
-                              NULL);
-
-  return_value &= xTaskCreate(flowmeter, "flowmeter", USERTASK_STACK_SIZE, NULL, HIGH_PRIO,
-                                NULL);
-
 
   return_value &= xTaskCreate(digi_p2_task, "digi_p2_task", USERTASK_STACK_SIZE,
                               NULL, MED_PRIO, NULL);

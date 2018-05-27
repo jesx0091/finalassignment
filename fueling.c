@@ -93,14 +93,20 @@ void fueling_task(void *pvParameters)
     switch (state)
     {
     case READY:
+      emp_set_led(LED_COLOR_WHITE);
+      ;
       if (r_msg.function == SW2 && r_msg.event == CLICK)
         state = HOOK_OFF;
+      emp_set_led(EMP_LED_GREEN);
+
       break;
     case HOOK_OFF:
       if (r_msg.function == SW2 && r_msg.event == CLICK)
       {
         // realease semaphore
         state = READY;
+        emp_set_led(LED_COLOR_WHITE);
+        ;
       }
       if (r_msg.function == SW1 && r_msg.event == HOLD)
       {
@@ -108,6 +114,8 @@ void fueling_task(void *pvParameters)
         f_msg.p_event = F_ON;
         f_msg.s_event = F_ON;
         state = INITIAL_SHUNT;
+        emp_set_led(EMP_LED_ALL);
+
       }
       break;
     case INITIAL_SHUNT:
@@ -119,10 +127,13 @@ void fueling_task(void *pvParameters)
         f_msg.p_event = F_OFF;
         f_msg.s_event = F_OFF;
         state = IDLE;
+        emp_set_led(LED_COLOR_WHITE);
+        ;
       }
       if (l_fueled >= 1)
       {
         state = NORMAL;
+        emp_set_led((EMP_LED_GREEN & EMP_LED_RED));
 
         // shunt = false
         f_msg.s_event = F_OFF;
@@ -136,12 +147,17 @@ void fueling_task(void *pvParameters)
         // pump = false
         f_msg.p_event = F_OFF;
         state = IDLE;
+        emp_set_led(LED_COLOR_WHITE);
+        ;
+
       }
       if (cash && cash - spent < X)
       {
         state = CLOSING_SHUNT;
         // shunt = true
         f_msg.s_event = F_ON;
+        emp_set_led(EMP_LED_ALL);
+
       }
       break;
     case CLOSING_SHUNT:
@@ -153,10 +169,16 @@ void fueling_task(void *pvParameters)
         f_msg.p_event = F_OFF;
         f_msg.s_event = F_OFF;
         state = IDLE;
+        emp_set_led(LED_COLOR_WHITE);
+        ;
+
       }
       if (cash - spent == 0)
       {
         state = READY;
+        emp_set_led(LED_COLOR_WHITE);
+        ;
+
         // shunt & pump = false
         f_msg.p_event = F_OFF;
         f_msg.s_event = F_OFF;
@@ -172,13 +194,24 @@ void fueling_task(void *pvParameters)
         f_msg.p_event = F_ON;
         f_msg.s_event = F_ON;
         state = INITIAL_SHUNT;
+        emp_set_led(EMP_LED_ALL);
+
       }
       if (r_msg.function == SW2 && r_msg.event == CLICK)
       {
         // realease semaphore
         state = READY;
+        emp_set_led(LED_COLOR_WHITE);
+        ;
+
       }
-      if(timer >= (last_timer + 1500));
+      if (timer >= (last_timer + 1500))
+      {
+        // release semaphore
+        state = READY;
+        emp_set_led(LED_COLOR_WHITE);
+        ;
+      }
       break;
     default:
       break;

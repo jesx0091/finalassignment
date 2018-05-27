@@ -202,7 +202,15 @@ static void queue_consumer(void *pvParameters)
           }
         } else if(received_msg.function == SW1)
         {
-          // nada for nu
+          switch(received_msg.event)
+          {
+          case DIGI_CCW:
+            lcd_writedata_position(15, 'V');
+            break;
+          case DIGI_CW:
+            lcd_writedata_position(15, 'H');
+            break;
+          }
         }
 
       }

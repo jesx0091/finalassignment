@@ -68,22 +68,28 @@ INT8U is_sw2_pressed(void)
   return ((GPIO_PORTF_DATA_R & 0x01) ? 0 : 1);
 }
 
-void sw1_task(void)
+void sw1_task(void *pvParameters)
 /*****************************************************************************
  *   Header description
  ******************************************************************************/
 {
-  static enum sw1_states
+  if (Queue == NULL)
   {
-    IDLE, FIRST_PRESS, FIRST_RELEASE, SECOND_PRESS, LONG_PRESS
-  } button_state = IDLE;
-  static INT16U button_timer;
-  //enum sw1_events button_event = BE_NONE;
-  struct _msg msg;
-
-
-  switch (button_state)
+    /* Queue was not created and must not be used. */
+    Queue = xQueueCreate(10, sizeof(struct _msg));
+  }
+  while (1)
   {
+    static enum sw1_states
+    {
+      IDLE, FIRST_PRESS, FIRST_RELEASE, SECOND_PRESS, LONG_PRESS
+    } button_state = IDLE;
+    static INT16U button_timer;
+    //enum sw1_events button_event = BE_NONE;
+    struct _msg msg;
+
+    switch (button_state)
+    {
     case IDLE:
       if (is_sw1_pressed())       // if button pushed
       {
@@ -142,9 +148,9 @@ void sw1_task(void)
       break;
     default:
       break;
+    }
   }
 }
-
 void emp_set_led(INT8U led)
 /*****************************************************************************
  *   Header description
@@ -179,7 +185,7 @@ void emp_toggle_status_led()
 
 void emp_clear_leds()
 {
-  emp_set_led( EMP_LED_ALL );
+  emp_set_led( EMP_LED_ALL);
 }
 
 void status_led_task()
@@ -189,7 +195,7 @@ void status_led_task()
 {
   static INT16U led_timer = STATUS_LED_TIMER;
 
-  if( ! --led_timer )
+  if (!--led_timer)
   {
     led_timer = STATUS_LED_TIMER;
     emp_toggle_status_led();
@@ -204,7 +210,8 @@ void init_tiva_board()
  ******************************************************************************/
 {
   // Set GPIO'S on Run Mode Clock Gating Control Register on PORTF, PORTE, PORTD, PORTC & PORTA
-  SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R5 | SYSCTL_RCGCGPIO_R4 | SYSCTL_RCGCGPIO_R3 | SYSCTL_RCGCGPIO_R2 | SYSCTL_RCGCGPIO_R0;
+  SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R5 | SYSCTL_RCGCGPIO_R4
+      | SYSCTL_RCGCGPIO_R3 | SYSCTL_RCGCGPIO_R2 | SYSCTL_RCGCGPIO_R0;
 
   // Unlock PORTF
   GPIO_PORTF_LOCK_R = 0x4C4F434B;
@@ -220,7 +227,6 @@ void init_tiva_board()
   GPIO_PORTA_DIR_R = 0x1E;
   // PORTE - input
   GPIO_PORTE_DIR_R = 0x00;
-
 
   // GPIO Digital Enable (GPIODEN)
   GPIO_PORTF_DEN_R = 0x1F;    // 0b00011111
@@ -252,7 +258,6 @@ void hardware_init()
 
   // Enable global interrupt
   enable_global_int();
-
 
 }
 

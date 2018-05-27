@@ -281,6 +281,7 @@ void inputtask(void *pvParameters)
   static INT8U useraccount = 0;
   static INT8U firsttime = 1;
   static INT8U go_on = 0;
+  static INT8U go_on_cash = 0;
   INT8U tolcd;
   INT8U received_key;
 
@@ -298,17 +299,13 @@ void inputtask(void *pvParameters)
 
   while (1)
   {
-    if (state == INIT)
-    {
-      if (keyQueue != 0)
-      {
-        state = INPUTACCOUNTNR;
-      }
-
-    }
-
     if( firsttime == 1)
     {
+
+      for (INT8U e = 0; e < (sizeof(clearLCD)-1); e++)
+      {
+        lcd_writedata_position(e, clearLCD[e]);
+      }
 
       for (INT8U e = 0; e < (sizeof(outwelcome)-1); e++)
       {
@@ -324,8 +321,75 @@ void inputtask(void *pvParameters)
       {
         lcd_writedata_position((e+14), outwelcome2[e]);
       }
+    }
 
+    if (state == INIT)
+    {
 
+      if (keyQueue != 0)
+      {
+        state = INPUTACCOUNTNR;
+      }
+      vTaskDelay(200);
+      struct _msg received_msg;
+      if (Queue != 0)
+      {
+        // Receive a message on the created queue.  Block for 10 ticks if a
+        // message is not immediately available.
+        if (xQueueReceive(Queue, &(received_msg), (portTickType ) 10))
+        {
+          // pcRxedMessage now points to the struct AMessage variable posted
+          // by vATask.
+          if (received_msg.function == DIGI_R)
+          {
+            switch (received_msg.event)
+            {
+            case DIGI_CCW:
+              state = INPUTCASH;
+              break;
+            case DIGI_CW:
+              state = INPUTCASH;
+              break;
+            }
+          }
+        }
+      }
+    }
+
+    if (state == INPUTCASH)
+    {
+      struct _msg received_msg;
+      if (Queue != 0)
+      {
+        // Receive a message on the created queue.  Block for 10 ticks if a
+        // message is not immediately available.
+        if (xQueueReceive(Queue, &(received_msg), (portTickType ) 10))
+        {
+          // pcRxedMessage now points to the struct AMessage variable posted
+          // by vATask.
+          if (received_msg.function == DIGI_R)
+          {
+            switch (received_msg.event)
+            {
+            case DIGI_CCW:
+              lcd_writedata_position(42, 'C');
+              break;
+            case DIGI_CW:
+              lcd_writedata_position(42, 'C');
+              break;
+            }
+          }
+          else if (received_msg.function == DIGI_SW)
+          {
+            switch (received_msg.event)
+            {
+            case CLICK:
+//!!              // productchoice
+              break;
+            }
+          }
+        }
+      }
     }
 
     // Keyboard press received?
@@ -612,8 +676,8 @@ int main(void)
   return_value &= xTaskCreate(hardware_ticks, "hardware_ticks",
                               USERTASK_STACK_SIZE, NULL, HIGH_PRIO, NULL);
 
-  return_value &= xTaskCreate(queue_consumer, "Queue eksempel2",
-                              USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL);
+  //return_value &= xTaskCreate(queue_consumer, "Queue eksempel2",
+  //                            USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL);
 
 //  return_value &= xTaskCreate(debug_testfunc, "Debugging", USERTASK_STACK_SIZE, NULL, MED_PRIO,
 //                              NULL);

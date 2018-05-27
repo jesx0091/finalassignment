@@ -39,7 +39,8 @@ extern xQueueHandle Queue;
 xQueueHandle xQueue;
 extern xQueueHandle keyQueue;    // INT8U med maks 8 elementer.
 
-typedef struct{
+typedef struct
+{
   char accountnr[7];
   char pin[5];
 } account;
@@ -65,7 +66,7 @@ int putChar()
   return (0);
 }
 
-static void emp_board_alive( void *pvParameters )
+static void emp_board_alive(void *pvParameters)
 /*****************************************************************************
  *   Input    :  Process Parameters
  *   Output   :  -
@@ -87,28 +88,28 @@ static void emp_board_alive( void *pvParameters )
   }
 }
 
-static void timer( void *pvParameters )
+static void timer(void *pvParameters)
 /*****************************************************************************
  *   Input    :  Process Parameters
  *   Output   :  -
  *   Function :  EMP board alive led task
  *****************************************************************************/
 {
-  INT8U time[] = {'0','1','2','3','4','5','6','7','8','9','\n'};
+  INT8U time[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '\n' };
   static int i = 0;
   while (1)
   {
     lcd_writedata_position(0, time[i]);
     i++;
-    if( i > 9 )
+    if (i > 9)
     {
-    i = 0;
+      i = 0;
     }
-    vTaskDelay(1000/portTICK_RATE_MS);        // timing med delay her! Resten er ligegyldigt / debugging. Sat til 1000ms = 1s.
+    vTaskDelay(1000 / portTICK_RATE_MS); // timing med delay her! Resten er ligegyldigt / debugging. Sat til 1000ms = 1s.
   }
 }
 
-static void UART( void *pvParameters )
+static void UART(void *pvParameters)
 /*****************************************************************************
  *   Input    :  Process Parameters
  *   Output   :  -
@@ -135,7 +136,7 @@ static void UART( void *pvParameters )
   }
 }
 
-static void queue_producer( void *pvParameters )
+static void queue_producer(void *pvParameters)
 /*****************************************************************************
  *   Input    :  -
  *   Output   :  -
@@ -157,17 +158,17 @@ static void queue_producer( void *pvParameters )
     /* Send an unsigned long.  Wait for 10 ticks for space to become
      available if necessary. */
   }
-    while (1)
+  while (1)
+  {
+    if ( xQueueSendToBack( xQueue,
+        ( void * ) &queue_var,
+        ( portTickType ) 10 ) != pdPASS)
     {
-      if ( xQueueSendToBack( xQueue,
-          ( void * ) &queue_var,
-          ( portTickType ) 10 ) != pdPASS)
-      {
-        /* Failed to post the message, even after 10 ticks. */
-      }
-      queue_var++;
-      vTaskDelay(25);     // udskriver lynhurtigt.
+      /* Failed to post the message, even after 10 ticks. */
     }
+    queue_var++;
+    vTaskDelay(25);     // udskriver lynhurtigt.
+  }
 }
 
 static void queue_consumer(void *pvParameters)
@@ -188,9 +189,9 @@ static void queue_consumer(void *pvParameters)
       {
         // pcRxedMessage now points to the struct AMessage variable posted
         // by vATask.
-        if(received_msg.function == DIGI_R)
+        if (received_msg.function == DIGI_R)
         {
-          switch(received_msg.event)
+          switch (received_msg.event)
           {
           case DIGI_CCW:
             lcd_writedata_position(15, 'V');
@@ -199,16 +200,22 @@ static void queue_consumer(void *pvParameters)
             lcd_writedata_position(15, 'H');
             break;
           }
-        } else if(received_msg.function == SW1)
+        }
+        else if (received_msg.function == SW1)
         {
-          switch(received_msg.event)
+          switch (received_msg.event)
           {
-          case DIGI_CCW:
-            lcd_writedata_position(15, 'V');
+          case CLICK:
+            lcd_writedata_position(14, 'C');
             break;
-          case DIGI_CW:
-            lcd_writedata_position(15, 'H');
+          case HOLD:
+            lcd_writedata_position(14, 'H');
             break;
+          case RELEASED:
+            lcd_writedata_position(14, 'R');
+            break;
+          case D_CLICK:
+            lcd_writedata_position(14, 'D');
           }
         }
 
@@ -254,7 +261,7 @@ void inputtask(void *pvParameters)
 
   while (1)
   {
-    if( state == INIT)
+    if (state == INIT)
     {
       if (keyQueue != 0)
       {
@@ -483,7 +490,7 @@ void inputtask(void *pvParameters)
   }
 }
 
-static void setupHardware( void )
+static void setupHardware(void)
 /*****************************************************************************
  *   Input    :  -
  *   Output   :  -
@@ -502,7 +509,7 @@ static void setupHardware( void )
   init_systick();
 }
 
-int main( void )
+int main(void)
 /*****************************************************************************
  *   Input    :
  *   Output   :
@@ -523,6 +530,8 @@ int main( void )
   return_value &= xTaskCreate(emp_board_alive, "EMP Board Alive",
                               USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL);
 
+  return_value &= xTaskCreate(sw1_task, "sw 1 task",
+                               USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL);
   //return_value &= xTaskCreate(timer, "Time", USERTASK_STACK_SIZE, NULL,
   //                            MED_PRIO, NULL);
 
@@ -532,15 +541,14 @@ int main( void )
   //return_value &= xTaskCreate(queue_producer, "Queue eksempel1", USERTASK_STACK_SIZE, NULL, MED_PRIO,
   //                            NULL);
 
-  return_value &= xTaskCreate(queue_consumer, "Queue eksempel2", USERTASK_STACK_SIZE, NULL, MED_PRIO,
-                              NULL);
+  return_value &= xTaskCreate(queue_consumer, "Queue eksempel2",
+                              USERTASK_STACK_SIZE, NULL, MED_PRIO, NULL);
 
 //  return_value &= xTaskCreate(debug_testfunc, "Debugging", USERTASK_STACK_SIZE, NULL, MED_PRIO,
 //                              NULL);
 
-  return_value &= xTaskCreate(inputtask, "Input", USERTASK_STACK_SIZE, NULL, MED_PRIO,
-                              NULL);
-
+  return_value &= xTaskCreate(inputtask, "Input", USERTASK_STACK_SIZE, NULL,
+                              MED_PRIO, NULL);
 
   lcd_init();           // Init the LCD-screen
 

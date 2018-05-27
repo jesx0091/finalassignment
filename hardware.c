@@ -78,16 +78,18 @@ void sw1_task(void *pvParameters)
     /* Queue was not created and must not be used. */
     Queue = xQueueCreate(10, sizeof(struct _msg));
   }
+
+  static enum sw1_states
+  {
+    IDLE, FIRST_PRESS, FIRST_RELEASE, SECOND_PRESS, LONG_PRESS
+  } button_state = IDLE;
+  static INT16U button_timer;
+  //enum sw1_events button_event = BE_NONE;
+  struct _msg msg;
+  uint8_t event = 0;
   while (1)
   {
-    static enum sw1_states
-    {
-      IDLE, FIRST_PRESS, FIRST_RELEASE, SECOND_PRESS, LONG_PRESS
-    } button_state = IDLE;
-    static INT16U button_timer;
-    //enum sw1_events button_event = BE_NONE;
-    struct _msg msg;
-
+    event = 0;
     switch (button_state)
     {
     case IDLE:
@@ -102,6 +104,8 @@ void sw1_task(void *pvParameters)
       {
         button_state = LONG_PRESS;
         //button_event = BE_LONG;
+        event = HOLD;
+
       }
       else
       {
@@ -117,6 +121,7 @@ void sw1_task(void *pvParameters)
       {
         button_state = IDLE;
         //button_event = BE_SINGLE;
+        event = CLICK;
       }
       else
       {
@@ -132,6 +137,7 @@ void sw1_task(void *pvParameters)
       {
         button_state = LONG_PRESS;
         //button_event = BE_LONG;
+        event = HOLD;
       }
       else
       {
@@ -139,15 +145,24 @@ void sw1_task(void *pvParameters)
         {
           button_state = IDLE;
           //button_event = BE_DOUBLE;
+          event = D_CLICK;
         }
       }
       break;
     case LONG_PRESS:
       if (!is_sw1_pressed())                 // if button released
         button_state = IDLE;
+      event = RELEASED;
       break;
     default:
       break;
+    }
+    if (event)
+    {
+      msg.ch = 0;
+      msg.event = event;
+      msg.function = SW1;
+      xQueueSendToBack(Queue, &msg, 0);
     }
   }
 }

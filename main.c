@@ -242,20 +242,18 @@ void inputtask(void *pvParameters)
 
   static enum states
   {
-    INPUTACCOUNTNR, INPUTPINNR, PRODUCT, DONE
-  } state = INPUTACCOUNTNR;
+    INIT, INPUTCASH, INPUTACCOUNTNR, INPUTPINNR, PRODUCT, DONE
+  } state = INIT;
 
   while (1)
   {
-    if (firsttime == 1)
+    if( state == INIT)
     {
-      char out[] = "AccNr: ";
-      for (INT8U e = 0; e < sizeof(out); e++)
+      if (keyQueue != 0)
       {
-        lcd_writedata_position((e), out[e]);
+        state = INPUTACCOUNTNR;
       }
     }
-
     // Keyboard press received?
     if (keyQueue != 0)
     {
@@ -264,6 +262,15 @@ void inputtask(void *pvParameters)
       // message is not immediately available.
       if (xQueueReceive(keyQueue, &(received_key), (portTickType ) 10))
       {
+        if (firsttime == 1)
+        {
+          char out[] = "AccNr: ";
+          for (INT8U e = 0; e < sizeof(out); e++)
+          {
+            lcd_writedata_position((e), out[e]);
+          }
+        }
+
         if (state == INPUTACCOUNTNR)
         {
           if (countaccountnr == 0)
@@ -463,7 +470,6 @@ void inputtask(void *pvParameters)
           go_on = 0;
           state = INPUTACCOUNTNR;
         }
-
       }
     }
   }
